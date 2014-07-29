@@ -1,0 +1,39 @@
+<h1>Listing entries</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Date</th>
+      <th>Client</th>
+      <th>Description</th>
+      <th>Hours</th>
+      <th>File</th>
+      <th>Link</th>
+      <th>Tag list</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @entries.each do |entry| %>
+      <tr>
+        <td><%= entry.name %></td>
+        <td><%= entry.date %></td>
+        <td><%= entry.client %></td>
+        <td><%= entry.description %></td>
+        <td><%= entry.hours %></td>
+        <td><%= entry.file %></td>
+        <td><%= entry.link %></td>
+        <td><%= entry.tag_list %></td>
+        <td><%= link_to 'Show', entry %></td>
+        <td><%= link_to 'Edit', edit_entry_path(entry) %></td>
+        <td><%= link_to 'Destroy', entry, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Entry', new_entry_path %>

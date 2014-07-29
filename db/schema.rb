@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140729055923) do
+ActiveRecord::Schema.define(version: 20140729060701) do
 
   create_table "bills", force: true do |t|
     t.string   "summary"
@@ -61,6 +61,21 @@ ActiveRecord::Schema.define(version: 20140729055923) do
     t.string   "link"
     t.text     "tag_list"
     t.string   "file"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "users", force: true do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "currency"
+    t.string   "email"
+    t.string   "phone"
+    t.string   "mobile"
+    t.string   "website"
+    t.string   "city"
+    t.string   "state"
+    t.string   "zipcode"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
