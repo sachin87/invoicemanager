@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140729060701) do
+ActiveRecord::Schema.define(version: 20140729061709) do
 
   create_table "bills", force: true do |t|
     t.string   "summary"
@@ -22,6 +22,19 @@ ActiveRecord::Schema.define(version: 20140729060701) do
     t.string   "due_on"
     t.string   "purchase_order_number"
     t.text     "invoice_notes"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "entries", force: true do |t|
+    t.string   "name"
+    t.date     "date"
+    t.string   "client"
+    t.text     "description"
+    t.string   "hours"
+    t.string   "file"
+    t.string   "link"
+    t.string   "tag_list"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -61,6 +74,14 @@ ActiveRecord::Schema.define(version: 20140729060701) do
     t.string   "link"
     t.text     "tag_list"
     t.string   "file"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "tickets", force: true do |t|
+    t.string   "subject"
+    t.text     "message"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
