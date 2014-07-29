@@ -34,6 +34,7 @@ gem 'omniauth'
 gem 'rails_12factor'
 gem 'simple_form'
 gem 'bootstrap-datepicker-rails'
+gem 'money-rails'
 group :production do
   gem 'pg'
 end
