@@ -29,9 +29,10 @@
           %a.brand(href="#") Invoicemanager
           .container.nav-collapse
             %ul.nav
-              %li= link_to "Link 1", "/path1"
-              %li= link_to "Link 2", "/path2"
-              %li= link_to "Link 3", "/path3"
+              %li= link_to "User Name", "/path1"
+              %li= link_to "Upgrade", "/path1"
+              %li= link_to "Support", "/path2"
+              %li= link_to "Settings", "/path3"
 
     .container-fluid
 
@@ -40,9 +41,14 @@
           .well.sidebar-nav
             %ul.nav.nav-list
               %li.nav-header Sidebar
-              %li= link_to "Link 1", "/path1"
-              %li= link_to "Link 2", "/path2"
-              %li= link_to "Link 3", "/path3"
+              %li= link_to "Dashboard", root_path
+              %li= link_to "Invoices", invoices_path
+              %li= link_to "Bills", bills_path
+              %li= link_to "Estimates", estimates_path
+              %li= link_to "Track", entries_path
+              %li= link_to "Network",users_path
+              %li= link_to "Files", '#'
+              %li= link_to "Trash", '#'
         .span9
           = bootstrap_flash
           = yield
