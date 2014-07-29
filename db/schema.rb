@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140729054033) do
+ActiveRecord::Schema.define(version: 20140729055923) do
 
   create_table "bills", force: true do |t|
     t.string   "summary"
@@ -22,6 +22,19 @@ ActiveRecord::Schema.define(version: 20140729054033) do
     t.string   "due_on"
     t.string   "purchase_order_number"
     t.text     "invoice_notes"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "estimates", force: true do |t|
+    t.string   "summary"
+    t.string   "from"
+    t.string   "date"
+    t.string   "number"
+    t.string   "to"
+    t.date     "due_on"
+    t.string   "estimate_number"
+    t.text     "estimate_notes"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
