@@ -1,0 +1,55 @@
+# encoding: UTF-8
+# This file is auto-generated from the current state of the database. Instead
+# of editing this file, please use the migrations feature of Active Record to
+# incrementally modify your database, and then regenerate this schema definition.
+#
+# Note that this schema.rb definition is the authoritative source for your
+# database schema. If you need to create the application database on another
+# system, you should be using db:schema:load, not running all the migrations
+# from scratch. The latter is a flawed and unsustainable approach (the more migrations
+# you'll amass, the slower it'll run and the greater likelihood for issues).
+#
+# It's strongly recommended that you check this file into your version control system.
+
+ActiveRecord::Schema.define(version: 20140729054033) do
+
+  create_table "bills", force: true do |t|
+    t.string   "summary"
+    t.string   "from"
+    t.date     "date"
+    t.string   "bill_number"
+    t.string   "to"
+    t.string   "due_on"
+    t.string   "purchase_order_number"
+    t.text     "invoice_notes"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "invoices", force: true do |t|
+    t.string   "summary"
+    t.string   "from"
+    t.date     "date"
+    t.string   "invoice_number"
+    t.string   "to"
+    t.string   "invoice_due"
+    t.string   "purchase_order_number"
+    t.text     "invoice_notes"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "items", force: true do |t|
+    t.text     "description"
+    t.integer  "quantity"
+    t.float    "rate"
+    t.float    "amount"
+    t.date     "date"
+    t.string   "link"
+    t.text     "tag_list"
+    t.string   "file"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+end
