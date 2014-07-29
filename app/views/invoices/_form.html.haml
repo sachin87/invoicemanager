@@ -1,36 +1,13 @@
-= form_for @invoice, :html => { :class => 'form-horizontal' } do |f|
-  .control-group
-    = f.label :summary, :class => 'control-label'
-    .controls
-      = f.text_field :summary, :class => 'text_field'
-  .control-group
-    = f.label :from, :class => 'control-label'
-    .controls
-      = f.text_field :from, :class => 'text_field'
-  .control-group
-    = f.label :date, :class => 'control-label'
-    .controls
-      = f.text_field :date, :class => 'text_field'
-  .control-group
-    = f.label :invoice_number, :class => 'control-label'
-    .controls
-      = f.text_field :invoice_number, :class => 'text_field'
-  .control-group
-    = f.label :to, :class => 'control-label'
-    .controls
-      = f.text_field :to, :class => 'text_field'
-  .control-group
-    = f.label :invoice_due, :class => 'control-label'
-    .controls
-      = f.text_field :invoice_due, :class => 'text_field'
-  .control-group
-    = f.label :purchase_order_number, :class => 'control-label'
-    .controls
-      = f.text_field :purchase_order_number, :class => 'text_field'
-  .control-group
-    = f.label :invoice_notes, :class => 'control-label'
-    .controls
-      = f.text_field :invoice_notes, :class => 'text_field'
+= simple_form_for @invoice, :html => { :class => 'form-horizontal' } do |f|
+  = f.input :summary
+  = f.input :from
+  = f.input :date, as: :string, input_html: { class: 'datepicker' }
+  = f.input :invoice_number
+  = f.input :to
+  = f.input :invoice_due, collection: Invoice::INVOICE_DUE
+  = f.input :purchase_order_number
+  = f.input :invoice_notes
+  = f.input :user_id
   .form-actions
-    = f.submit nil, :class => 'btn btn-primary'
+    = f.button :submit, :class => 'btn-primary'
     = link_to t('.cancel', :default => t("helpers.links.cancel")), invoices_path, :class => 'btn'

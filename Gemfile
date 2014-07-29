@@ -32,6 +32,8 @@ gem 'haml-rails'
 gem "less-rails"
 gem 'omniauth'
 gem 'rails_12factor'
+gem 'simple_form'
+gem 'bootstrap-datepicker-rails'
 group :production do
   gem 'pg'
 end

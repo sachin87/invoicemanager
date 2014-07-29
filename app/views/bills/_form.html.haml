@@ -1,36 +1,13 @@
-= form_for @bill, :html => { :class => 'form-horizontal' } do |f|
-  .control-group
-    = f.label :summary, :class => 'control-label'
-    .controls
-      = f.text_field :summary, :class => 'text_field'
-  .control-group
-    = f.label :from, :class => 'control-label'
-    .controls
-      = f.text_field :from, :class => 'text_field'
-  .control-group
-    = f.label :date, :class => 'control-label'
-    .controls
-      = f.text_field :date, :class => 'text_field'
-  .control-group
-    = f.label :bill_number, :class => 'control-label'
-    .controls
-      = f.text_field :bill_number, :class => 'text_field'
-  .control-group
-    = f.label :to, :class => 'control-label'
-    .controls
-      = f.text_field :to, :class => 'text_field'
-  .control-group
-    = f.label :due_on, :class => 'control-label'
-    .controls
-      = f.text_field :due_on, :class => 'text_field'
-  .control-group
-    = f.label :purchase_order_number, :class => 'control-label'
-    .controls
-      = f.text_field :purchase_order_number, :class => 'text_field'
-  .control-group
-    = f.label :invoice_notes, :class => 'control-label'
-    .controls
-      = f.text_field :invoice_notes, :class => 'text_field'
+= simple_form_for @bill, :html => { :class => 'form-horizontal' } do |f|
+  = f.input :summary
+  = f.input :from
+  = f.input :date
+  = f.input :bill_number
+  = f.input :to
+  = f.input :due_on
+  = f.input :purchase_order_number
+  = f.input :invoice_notes
+  = f.input :user_id
   .form-actions
-    = f.submit nil, :class => 'btn btn-primary'
+    = f.button :submit, :class => 'btn-primary'
     = link_to t('.cancel', :default => t("helpers.links.cancel")), bills_path, :class => 'btn'

@@ -13,6 +13,7 @@
       %th= model_class.human_attribute_name(:due_on)
       %th= model_class.human_attribute_name(:estimate_number)
       %th= model_class.human_attribute_name(:estimate_notes)
+      %th= model_class.human_attribute_name(:user_id)
       %th= model_class.human_attribute_name(:created_at)
       %th=t '.actions', :default => t("helpers.actions")
   %tbody
@@ -27,6 +28,7 @@
         %td= estimate.due_on
         %td= estimate.estimate_number
         %td= estimate.estimate_notes
+        %td= estimate.user_id
         %td=l estimate.created_at
         %td
           = link_to t('.edit', :default => t("helpers.links.edit")), edit_estimate_path(estimate), :class => 'btn btn-mini'

@@ -34,6 +34,10 @@
   %strong= model_class.human_attribute_name(:invoice_notes) + ':'
   %br
   = @bill.invoice_notes
+%p
+  %strong= model_class.human_attribute_name(:user_id) + ':'
+  %br
+  = @bill.user_id
 
 .form-actions
   = link_to t('.back', :default => t("helpers.links.back")), bills_path, :class => 'btn'

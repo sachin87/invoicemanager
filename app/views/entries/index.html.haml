@@ -13,6 +13,7 @@
       %th= model_class.human_attribute_name(:file)
       %th= model_class.human_attribute_name(:link)
       %th= model_class.human_attribute_name(:tag_list)
+      %th= model_class.human_attribute_name(:user_id)
       %th= model_class.human_attribute_name(:created_at)
       %th=t '.actions', :default => t("helpers.actions")
   %tbody
@@ -27,6 +28,7 @@
         %td= entry.file
         %td= entry.link
         %td= entry.tag_list
+        %td= entry.user_id
         %td=l entry.created_at
         %td
           = link_to t('.edit', :default => t("helpers.links.edit")), edit_entry_path(entry), :class => 'btn btn-mini'

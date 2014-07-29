@@ -42,6 +42,66 @@
   %strong= model_class.human_attribute_name(:zipcode) + ':'
   %br
   = @user.zipcode
+%p
+  %strong= model_class.human_attribute_name(:encrypted_password) + ':'
+  %br
+  = @user.encrypted_password
+%p
+  %strong= model_class.human_attribute_name(:reset_password_token) + ':'
+  %br
+  = @user.reset_password_token
+%p
+  %strong= model_class.human_attribute_name(:reset_password_sent_at) + ':'
+  %br
+  = @user.reset_password_sent_at
+%p
+  %strong= model_class.human_attribute_name(:remember_created_at) + ':'
+  %br
+  = @user.remember_created_at
+%p
+  %strong= model_class.human_attribute_name(:current_sign_in_at) + ':'
+  %br
+  = @user.current_sign_in_at
+%p
+  %strong= model_class.human_attribute_name(:last_sign_in_at) + ':'
+  %br
+  = @user.last_sign_in_at
+%p
+  %strong= model_class.human_attribute_name(:current_sign_in_ip) + ':'
+  %br
+  = @user.current_sign_in_ip
+%p
+  %strong= model_class.human_attribute_name(:last_sign_in_ip) + ':'
+  %br
+  = @user.last_sign_in_ip
+%p
+  %strong= model_class.human_attribute_name(:confirmation_token) + ':'
+  %br
+  = @user.confirmation_token
+%p
+  %strong= model_class.human_attribute_name(:confirmed_at) + ':'
+  %br
+  = @user.confirmed_at
+%p
+  %strong= model_class.human_attribute_name(:confirmation_sent_at) + ':'
+  %br
+  = @user.confirmation_sent_at
+%p
+  %strong= model_class.human_attribute_name(:unconfirmed_email) + ':'
+  %br
+  = @user.unconfirmed_email
+%p
+  %strong= model_class.human_attribute_name(:failed_attempts) + ':'
+  %br
+  = @user.failed_attempts
+%p
+  %strong= model_class.human_attribute_name(:unlock_token) + ':'
+  %br
+  = @user.unlock_token
+%p
+  %strong= model_class.human_attribute_name(:locked_at) + ':'
+  %br
+  = @user.locked_at
 
 .form-actions
   = link_to t('.back', :default => t("helpers.links.back")), users_path, :class => 'btn'

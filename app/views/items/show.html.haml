@@ -34,6 +34,10 @@
   %strong= model_class.human_attribute_name(:file) + ':'
   %br
   = @item.file
+%p
+  %strong= model_class.human_attribute_name(:user_id) + ':'
+  %br
+  = @item.user_id
 
 .form-actions
   = link_to t('.back', :default => t("helpers.links.back")), items_path, :class => 'btn'

@@ -1,36 +1,13 @@
-= form_for @item, :html => { :class => 'form-horizontal' } do |f|
-  .control-group
-    = f.label :description, :class => 'control-label'
-    .controls
-      = f.text_field :description, :class => 'text_field'
-  .control-group
-    = f.label :quantity, :class => 'control-label'
-    .controls
-      = f.text_field :quantity, :class => 'text_field'
-  .control-group
-    = f.label :rate, :class => 'control-label'
-    .controls
-      = f.text_field :rate, :class => 'text_field'
-  .control-group
-    = f.label :amount, :class => 'control-label'
-    .controls
-      = f.text_field :amount, :class => 'text_field'
-  .control-group
-    = f.label :date, :class => 'control-label'
-    .controls
-      = f.text_field :date, :class => 'text_field'
-  .control-group
-    = f.label :link, :class => 'control-label'
-    .controls
-      = f.text_field :link, :class => 'text_field'
-  .control-group
-    = f.label :tag_list, :class => 'control-label'
-    .controls
-      = f.text_field :tag_list, :class => 'text_field'
-  .control-group
-    = f.label :file, :class => 'control-label'
-    .controls
-      = f.text_field :file, :class => 'text_field'
+= simple_form_for @item, :html => { :class => 'form-horizontal' } do |f|
+  = f.input :description
+  = f.input :quantity
+  = f.input :rate
+  = f.input :amount
+  = f.input :date
+  = f.input :link
+  = f.input :tag_list
+  = f.input :file
+  = f.input :user_id
   .form-actions
-    = f.submit nil, :class => 'btn btn-primary'
+    = f.button :submit, :class => 'btn-primary'
     = link_to t('.cancel', :default => t("helpers.links.cancel")), items_path, :class => 'btn'

@@ -15,6 +15,21 @@
       %th= model_class.human_attribute_name(:city)
       %th= model_class.human_attribute_name(:state)
       %th= model_class.human_attribute_name(:zipcode)
+      %th= model_class.human_attribute_name(:encrypted_password)
+      %th= model_class.human_attribute_name(:reset_password_token)
+      %th= model_class.human_attribute_name(:reset_password_sent_at)
+      %th= model_class.human_attribute_name(:remember_created_at)
+      %th= model_class.human_attribute_name(:current_sign_in_at)
+      %th= model_class.human_attribute_name(:last_sign_in_at)
+      %th= model_class.human_attribute_name(:current_sign_in_ip)
+      %th= model_class.human_attribute_name(:last_sign_in_ip)
+      %th= model_class.human_attribute_name(:confirmation_token)
+      %th= model_class.human_attribute_name(:confirmed_at)
+      %th= model_class.human_attribute_name(:confirmation_sent_at)
+      %th= model_class.human_attribute_name(:unconfirmed_email)
+      %th= model_class.human_attribute_name(:failed_attempts)
+      %th= model_class.human_attribute_name(:unlock_token)
+      %th= model_class.human_attribute_name(:locked_at)
       %th= model_class.human_attribute_name(:created_at)
       %th=t '.actions', :default => t("helpers.actions")
   %tbody
@@ -31,6 +46,21 @@
         %td= user.city
         %td= user.state
         %td= user.zipcode
+        %td= user.encrypted_password
+        %td= user.reset_password_token
+        %td= user.reset_password_sent_at
+        %td= user.remember_created_at
+        %td= user.current_sign_in_at
+        %td= user.last_sign_in_at
+        %td= user.current_sign_in_ip
+        %td= user.last_sign_in_ip
+        %td= user.confirmation_token
+        %td= user.confirmed_at
+        %td= user.confirmation_sent_at
+        %td= user.unconfirmed_email
+        %td= user.failed_attempts
+        %td= user.unlock_token
+        %td= user.locked_at
         %td=l user.created_at
         %td
           = link_to t('.edit', :default => t("helpers.links.edit")), edit_user_path(user), :class => 'btn btn-mini'
