@@ -10,5 +10,7 @@ class User < ActiveRecord::Base
   has_many :tickets
   has_many :entries
   has_many :tasks
-  has_many :teams
+  has_many :teams_users
+  has_many :teams, through: :teams_users
+
 end
