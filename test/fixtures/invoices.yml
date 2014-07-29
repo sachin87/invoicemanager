@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  summary: MyString
+  invoice_from: MyString
+  date: MyString
+  invoice_number: MyString
+  invoice_to: MyString
+  invoice_due: MyString
+  purchase_order_number: MyString
+  invoice_notes: MyText
+
+two:
+  summary: MyString
+  invoice_from: MyString
+  date: MyString
+  invoice_number: MyString
+  invoice_to: MyString
+  invoice_due: MyString
+  purchase_order_number: MyString
+  invoice_notes: MyText

@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Summary:</strong>
+  <%= @invoice.summary %>
+</p>
+
+<p>
+  <strong>Invoice from:</strong>
+  <%= @invoice.invoice_from %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @invoice.date %>
+</p>
+
+<p>
+  <strong>Invoice number:</strong>
+  <%= @invoice.invoice_number %>
+</p>
+
+<p>
+  <strong>Invoice to:</strong>
+  <%= @invoice.invoice_to %>
+</p>
+
+<p>
+  <strong>Invoice due:</strong>
+  <%= @invoice.invoice_due %>
+</p>
+
+<p>
+  <strong>Purchase order number:</strong>
+  <%= @invoice.purchase_order_number %>
+</p>
+
+<p>
+  <strong>Invoice notes:</strong>
+  <%= @invoice.invoice_notes %>
+</p>
+
+<%= link_to 'Edit', edit_invoice_path(@invoice) %> |
+<%= link_to 'Back', invoices_path %>

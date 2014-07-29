@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  summary: MyString
+  bill_from: MyString
+  date: MyString
+  bill_number: MyString
+  bill_to: MyString
+  due_on: 2014-07-29
+  purchase_order_number: MyString
+  invoice_notes: MyText
+
+two:
+  summary: MyString
+  bill_from: MyString
+  date: MyString
+  bill_number: MyString
+  bill_to: MyString
+  due_on: 2014-07-29
+  purchase_order_number: MyString
+  invoice_notes: MyText
