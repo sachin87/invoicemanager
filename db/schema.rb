@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140729082953) do
+ActiveRecord::Schema.define(version: 20140729104326) do
 
   create_table "bills", force: true do |t|
     t.string   "summary"
@@ -24,7 +24,10 @@ ActiveRecord::Schema.define(version: 20140729082953) do
     t.text     "invoice_notes"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
   end
+
+  add_index "bills", ["user_id"], name: "index_bills_on_user_id"
 
   create_table "entries", force: true do |t|
     t.string   "name"
@@ -37,7 +40,10 @@ ActiveRecord::Schema.define(version: 20140729082953) do
     t.string   "tag_list"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
   end
+
+  add_index "entries", ["user_id"], name: "index_entries_on_user_id"
 
   create_table "estimates", force: true do |t|
     t.string   "summary"
@@ -50,7 +56,10 @@ ActiveRecord::Schema.define(version: 20140729082953) do
     t.text     "estimate_notes"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
   end
+
+  add_index "estimates", ["user_id"], name: "index_estimates_on_user_id"
 
   create_table "invoices", force: true do |t|
     t.string   "summary"
@@ -63,7 +72,10 @@ ActiveRecord::Schema.define(version: 20140729082953) do
     t.text     "invoice_notes"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
   end
+
+  add_index "invoices", ["user_id"], name: "index_invoices_on_user_id"
 
   create_table "items", force: true do |t|
     t.text     "description"
@@ -76,7 +88,10 @@ ActiveRecord::Schema.define(version: 20140729082953) do
     t.string   "file"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
   end
+
+  add_index "items", ["user_id"], name: "index_items_on_user_id"
 
   create_table "taggings", force: true do |t|
     t.integer  "tag_id"
@@ -103,7 +118,10 @@ ActiveRecord::Schema.define(version: 20140729082953) do
     t.float    "hourly_rate"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
   end
+
+  add_index "tasks", ["user_id"], name: "index_tasks_on_user_id"
 
   create_table "teams", force: true do |t|
     t.string   "name"
@@ -118,6 +136,8 @@ ActiveRecord::Schema.define(version: 20140729082953) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "tickets", ["user_id"], name: "index_tickets_on_user_id"
 
   create_table "users", force: true do |t|
     t.string   "first_name"

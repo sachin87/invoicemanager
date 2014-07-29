@@ -3,4 +3,12 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
          :confirmable, :lockable, :timeoutable, :omniauthable
+
+  has_many :invoices
+  has_many :bills
+  has_many :estimates
+  has_many :tickets
+  has_many :entries
+  has_many :tasks
+  has_many :teams
 end
