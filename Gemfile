@@ -30,7 +30,7 @@ gem 'twitter-bootstrap-rails'
 gem 'acts-as-taggable-on'
 gem 'rmagick'
 gem 'carrierwave'
-
+gem 'devise'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
