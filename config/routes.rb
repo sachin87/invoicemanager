@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :teams
+
   get 'dashboard/index'
 
   resources :tickets
