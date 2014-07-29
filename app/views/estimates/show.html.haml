@@ -1,0 +1,41 @@
+- model_class = Estimate
+.page-header
+  %h1=t '.title', :default => model_class.model_name.human.titleize
+
+%p
+  %strong= model_class.human_attribute_name(:summary) + ':'
+  %br
+  = @estimate.summary
+%p
+  %strong= model_class.human_attribute_name(:from) + ':'
+  %br
+  = @estimate.from
+%p
+  %strong= model_class.human_attribute_name(:date) + ':'
+  %br
+  = @estimate.date
+%p
+  %strong= model_class.human_attribute_name(:number) + ':'
+  %br
+  = @estimate.number
+%p
+  %strong= model_class.human_attribute_name(:to) + ':'
+  %br
+  = @estimate.to
+%p
+  %strong= model_class.human_attribute_name(:due_on) + ':'
+  %br
+  = @estimate.due_on
+%p
+  %strong= model_class.human_attribute_name(:estimate_number) + ':'
+  %br
+  = @estimate.estimate_number
+%p
+  %strong= model_class.human_attribute_name(:estimate_notes) + ':'
+  %br
+  = @estimate.estimate_notes
+
+.form-actions
+  = link_to t('.back', :default => t("helpers.links.back")), estimates_path, :class => 'btn'
+  = link_to t('.edit', :default => t("helpers.links.edit")), edit_estimate_path(@estimate), :class => 'btn'
+  = link_to t('.destroy', :default => t("helpers.links.destroy")), estimate_path(@estimate), :method => "delete", :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-danger'

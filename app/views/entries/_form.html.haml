@@ -1,0 +1,36 @@
+= form_for @entry, :html => { :class => 'form-horizontal' } do |f|
+  .control-group
+    = f.label :name, :class => 'control-label'
+    .controls
+      = f.text_field :name, :class => 'text_field'
+  .control-group
+    = f.label :date, :class => 'control-label'
+    .controls
+      = f.text_field :date, :class => 'text_field'
+  .control-group
+    = f.label :client, :class => 'control-label'
+    .controls
+      = f.text_field :client, :class => 'text_field'
+  .control-group
+    = f.label :description, :class => 'control-label'
+    .controls
+      = f.text_field :description, :class => 'text_field'
+  .control-group
+    = f.label :hours, :class => 'control-label'
+    .controls
+      = f.text_field :hours, :class => 'text_field'
+  .control-group
+    = f.label :file, :class => 'control-label'
+    .controls
+      = f.text_field :file, :class => 'text_field'
+  .control-group
+    = f.label :link, :class => 'control-label'
+    .controls
+      = f.text_field :link, :class => 'text_field'
+  .control-group
+    = f.label :tag_list, :class => 'control-label'
+    .controls
+      = f.text_field :tag_list, :class => 'text_field'
+  .form-actions
+    = f.submit nil, :class => 'btn btn-primary'
+    = link_to t('.cancel', :default => t("helpers.links.cancel")), entries_path, :class => 'btn'
