@@ -1,5 +1,6 @@
 class ChangeColumnReceiverIdInInvoices < ActiveRecord::Migration
   def change
-    change_column :invoices, :receiver_id, :integer
+    remove_column :invoices, :receiver_id
+    add_column :invoices, :receiver_id, :integer
   end
 end
