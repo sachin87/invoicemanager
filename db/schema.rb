@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140730063756) do
+ActiveRecord::Schema.define(version: 20140730064630) do
 
   create_table "bills", force: true do |t|
     t.string   "summary"
@@ -65,7 +65,7 @@ ActiveRecord::Schema.define(version: 20140730063756) do
     t.string   "summary"
     t.date     "date"
     t.string   "invoice_number"
-    t.string   "to"
+    t.integer  "receiver_id",           limit: 255
     t.string   "invoice_due"
     t.string   "purchase_order_number"
     t.text     "invoice_notes"
