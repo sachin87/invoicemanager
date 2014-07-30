@@ -7,8 +7,8 @@
   = f.input :invoice_number
   = f.input :invoice_due, collection: DUE_IN, include_blank: false
   = f.input :purchase_order_number
-  = f.simple_fields_for :items do |items_form|
-    %fieldset
+  %fieldset
+    = f.simple_fields_for :items do |items_form|
       = render 'item_fields', items_form: items_form
   = link_to_add_fields "Add Items", f, :items
   = f.input :invoice_notes

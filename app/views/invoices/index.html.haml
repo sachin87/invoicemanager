@@ -6,10 +6,10 @@
     %tr
       %th= model_class.human_attribute_name(:id)
       %th= model_class.human_attribute_name(:summary)
-      %th= model_class.human_attribute_name(:from)
+      %th From
       %th= model_class.human_attribute_name(:date)
       %th= model_class.human_attribute_name(:invoice_number)
-      %th= model_class.human_attribute_name(:to)
+      %th Receiver
       %th= model_class.human_attribute_name(:invoice_due)
       %th= model_class.human_attribute_name(:purchase_order_number)
       %th= model_class.human_attribute_name(:invoice_notes)
@@ -21,10 +21,10 @@
       %tr
         %td= link_to invoice.id, invoice_path(invoice)
         %td= invoice.summary
-        %td= invoice.from
+        %td= invoice.user.first_name
         %td= invoice.date
         %td= invoice.invoice_number
-        %td= invoice.to
+        %td= invoice.receiver_id
         %td= invoice.invoice_due
         %td= invoice.purchase_order_number
         %td= invoice.invoice_notes

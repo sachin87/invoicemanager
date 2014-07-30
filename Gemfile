@@ -36,7 +36,6 @@ gem 'simple_form'
 gem 'bootstrap-datepicker-rails'
 gem 'money-rails'
 gem 'pundit'
-gem 'rails4-autocomplete'
 group :production do
   gem 'pg'
 end
