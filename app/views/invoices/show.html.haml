@@ -9,7 +9,7 @@
 %p
   %strong= model_class.human_attribute_name(:from) + ':'
   %br
-  = @invoice.from
+  = @invoice.user.first_name
 %p
   %strong= model_class.human_attribute_name(:date) + ':'
   %br

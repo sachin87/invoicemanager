@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140729105118) do
+ActiveRecord::Schema.define(version: 20140730063756) do
 
   create_table "bills", force: true do |t|
     t.string   "summary"
@@ -63,7 +63,6 @@ ActiveRecord::Schema.define(version: 20140729105118) do
 
   create_table "invoices", force: true do |t|
     t.string   "summary"
-    t.string   "from"
     t.date     "date"
     t.string   "invoice_number"
     t.string   "to"
@@ -89,6 +88,8 @@ ActiveRecord::Schema.define(version: 20140729105118) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
+    t.string   "itemeable_type"
+    t.integer  "itemeable_id"
   end
 
   add_index "items", ["user_id"], name: "index_items_on_user_id"

@@ -14,7 +14,8 @@ class InvoicesController < ApplicationController
 
   # GET /invoices/new
   def new
-    @invoice = Invoice.new
+    @invoice = current_user.invoices.new
+    @invoice.items.build
   end
 
   # GET /invoices/1/edit
@@ -24,7 +25,7 @@ class InvoicesController < ApplicationController
   # POST /invoices
   # POST /invoices.json
   def create
-    @invoice = Invoice.new(invoice_params)
+    @invoice = current_user.invoices.new(invoice_params)
 
     respond_to do |format|
       if @invoice.save
@@ -64,11 +65,12 @@ class InvoicesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_invoice
-      @invoice = Invoice.find(params[:id])
+      @invoice = current_user.invoices.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def invoice_params
-      params.require(:invoice).permit(:summary, :invoice_from, :date, :invoice_number, :invoice_to, :invoice_due, :purchase_order_number, :invoice_notes)
+      params.require(:invoice).permit(:summary, :date, :invoice_number, :to, :due,
+                                      :purchase_order_number, :invoice_notes, :items_attributes)
     end
 end
