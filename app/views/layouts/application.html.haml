@@ -28,7 +28,7 @@
           %a.brand(href="#") Invoicemanager
           .container.nav-collapse
             %ul.nav.pull-right
-              %li= link_to current_user.first_name, "/path1" if current_user
+              %li= link_to current_user.first_name, current_user if current_user
               %li= link_to "Upgrade", "/path1"
               %li= link_to "Support", "/path2"
               %li= link_to "Settings", "/path3"
