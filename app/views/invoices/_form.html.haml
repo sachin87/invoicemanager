@@ -1,15 +1,15 @@
 = simple_form_for @invoice, :html => { :class => 'form-horizontal' } do |f|
   = f.input :summary
   %br
-  From #{current_user.first_name}
+  From
+  = current_user.first_name
   %br
   = f.input :date, as: :string, input_html: { class: 'datepicker' }
   = f.input :invoice_number
   = f.input :invoice_due, collection: DUE_IN, include_blank: false
   = f.input :purchase_order_number
-  %fieldset
-    = f.simple_fields_for :items do |items_form|
-      = render 'item_fields', items_form: items_form
+  = f.simple_fields_for :items do |items_form|
+    = render 'item_fields', items_form: items_form
   = link_to_add_fields "Add Items", f, :items
   = f.input :invoice_notes
   .form-actions

@@ -1,10 +1,11 @@
-= items_form.input :description
-= items_form.input :quantity
-= items_form.input :rate
-= items_form.input :amount
-= items_form.input :date, as: :string, input_html: { class: 'datepicker' }
-= items_form.input :link
-= items_form.input :tag_list
-= items_form.input :file
-= items_form.hidden_field :_destroy
-= link_to "remove", '#', class: "remove_fields"
+%fieldset
+  = items_form.input :description
+  = items_form.input :quantity
+  = items_form.input :rate
+  = items_form.input :amount
+  = items_form.input :date, as: :string, input_html: { class: 'datepicker' }
+  = items_form.input :link
+  = items_form.input :tag_list
+  = items_form.input :file
+  = items_form.hidden_field :_destroy
+  = link_to "remove", '#', class: "remove_fields"

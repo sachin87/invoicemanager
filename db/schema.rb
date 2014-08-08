@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140730064630) do
+ActiveRecord::Schema.define(version: 20140730092047) do
 
   create_table "bills", force: true do |t|
     t.string   "summary"
@@ -65,13 +65,13 @@ ActiveRecord::Schema.define(version: 20140730064630) do
     t.string   "summary"
     t.date     "date"
     t.string   "invoice_number"
-    t.integer  "receiver_id",           limit: 255
     t.string   "invoice_due"
     t.string   "purchase_order_number"
     t.text     "invoice_notes"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
+    t.integer  "receiver_id"
   end
 
   add_index "invoices", ["user_id"], name: "index_invoices_on_user_id"
