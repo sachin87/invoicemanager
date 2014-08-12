@@ -13,4 +13,6 @@ class User < ActiveRecord::Base
   has_many :teams_users
   has_many :teams, through: :teams_users
 
+  validates :first_name, :last_name, presence: true
+
 end
