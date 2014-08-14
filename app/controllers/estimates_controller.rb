@@ -4,7 +4,7 @@ class EstimatesController < ApplicationController
   # GET /estimates
   # GET /estimates.json
   def index
-    @estimates = Estimate.all
+    @estimates = current_user.estimates.all
   end
 
   # GET /estimates/1
@@ -25,7 +25,7 @@ class EstimatesController < ApplicationController
   # POST /estimates
   # POST /estimates.json
   def create
-    @estimate = Estimate.new(estimate_params)
+    @estimate = current_user.estimates.new(estimate_params)
 
     respond_to do |format|
       if @estimate.save
@@ -65,7 +65,7 @@ class EstimatesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_estimate
-      @estimate = Estimate.find(params[:id])
+      @estimate = current_user.estimates.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

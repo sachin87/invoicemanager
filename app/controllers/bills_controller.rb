@@ -4,7 +4,7 @@ class BillsController < ApplicationController
   # GET /bills
   # GET /bills.json
   def index
-    @bills = Bill.all
+    @bills = current_user.bills.all
   end
 
   # GET /bills/1
@@ -25,7 +25,7 @@ class BillsController < ApplicationController
   # POST /bills
   # POST /bills.json
   def create
-    @bill = Bill.new(bill_params)
+    @bill = current_user.bills.new(bill_params)
 
     respond_to do |format|
       if @bill.save
@@ -65,7 +65,7 @@ class BillsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_bill
-      @bill = Bill.find(params[:id])
+      @bill = current_user.bills.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

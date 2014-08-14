@@ -1,43 +1,42 @@
-- model_class = Estimate
 .page-header
-  %h1=t '.title', :default => model_class.model_name.human.titleize
+  %h1= @estimate.summary
 
 %p
-  %strong= model_class.human_attribute_name(:summary) + ':'
+  %strong Estimate Summary:
   %br
   = @estimate.summary
 %p
-  %strong= model_class.human_attribute_name(:from) + ':'
+  %strong From:
   %br
   = @estimate.from
 %p
-  %strong= model_class.human_attribute_name(:date) + ':'
+  %strong Date:
   %br
   = @estimate.date
 %p
-  %strong= model_class.human_attribute_name(:number) + ':'
+  %strong Estimate Number:
   %br
   = @estimate.number
 %p
-  %strong= model_class.human_attribute_name(:to) + ':'
+  %strong Estimate to:
   %br
   = @estimate.to
 %p
-  %strong= model_class.human_attribute_name(:due_on) + ':'
+  %strong Due on:
   %br
   = @estimate.due_on
 %p
-  %strong= model_class.human_attribute_name(:estimate_number) + ':'
+  %strong Estimate Number:
   %br
   = @estimate.estimate_number
 %p
-  %strong= model_class.human_attribute_name(:estimate_notes) + ':'
+  %strong Estimate Notes:
   %br
   = @estimate.estimate_notes
 %p
-  %strong= model_class.human_attribute_name(:user_id) + ':'
+  %strong User:
   %br
-  = @estimate.user_id
+  = @estimate.user.full_name
 
 .form-actions
   = link_to t('.back', :default => t("helpers.links.back")), estimates_path, :class => 'btn'

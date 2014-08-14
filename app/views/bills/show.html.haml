@@ -1,43 +1,42 @@
-- model_class = Bill
 .page-header
-  %h1=t '.title', :default => model_class.model_name.human.titleize
+  %h1= @bill.summary
 
 %p
-  %strong= model_class.human_attribute_name(:summary) + ':'
+  %strong Summary:
   %br
   = @bill.summary
 %p
-  %strong= model_class.human_attribute_name(:from) + ':'
+  %strong From:
   %br
   = @bill.from
 %p
-  %strong= model_class.human_attribute_name(:date) + ':'
+  %strong Date:
   %br
   = @bill.date
 %p
-  %strong= model_class.human_attribute_name(:bill_number) + ':'
+  %strong Bill Number:
   %br
   = @bill.bill_number
 %p
-  %strong= model_class.human_attribute_name(:to) + ':'
+  %strong Bill to:
   %br
   = @bill.to
 %p
-  %strong= model_class.human_attribute_name(:due_on) + ':'
+  %strong Due on:
   %br
   = @bill.due_on
 %p
-  %strong= model_class.human_attribute_name(:purchase_order_number) + ':'
+  %strong Purchase Order Number:
   %br
   = @bill.purchase_order_number
 %p
-  %strong= model_class.human_attribute_name(:invoice_notes) + ':'
+  %strong Bill Notes:
   %br
-  = @bill.invoice_notes
+  = @bill.bill_notes
 %p
-  %strong= model_class.human_attribute_name(:user_id) + ':'
+  %strong User:
   %br
-  = @bill.user_id
+  = @bill.user.full_name
 
 .form-actions
   = link_to t('.back', :default => t("helpers.links.back")), bills_path, :class => 'btn'
