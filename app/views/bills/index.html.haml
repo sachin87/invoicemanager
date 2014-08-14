@@ -4,32 +4,20 @@
 %table.table.table-striped
   %thead
     %tr
-      %th= model_class.human_attribute_name(:id)
-      %th= model_class.human_attribute_name(:summary)
-      %th= model_class.human_attribute_name(:from)
-      %th= model_class.human_attribute_name(:date)
-      %th= model_class.human_attribute_name(:bill_number)
-      %th= model_class.human_attribute_name(:to)
-      %th= model_class.human_attribute_name(:due_on)
-      %th= model_class.human_attribute_name(:purchase_order_number)
-      %th= model_class.human_attribute_name(:invoice_notes)
-      %th= model_class.human_attribute_name(:user_id)
-      %th= model_class.human_attribute_name(:created_at)
+      %th Date
+      %th Estimate Details
+      %th Client
+      %th Status
+      %th Amount
       %th=t '.actions', :default => t("helpers.actions")
   %tbody
     - @bills.each do |bill|
       %tr
-        %td= link_to bill.id, bill_path(bill)
-        %td= bill.summary
-        %td= bill.from
         %td= bill.date
-        %td= bill.bill_number
+        %td= bill.summary
         %td= bill.to
-        %td= bill.due_on
-        %td= bill.purchase_order_number
-        %td= bill.invoice_notes
-        %td= bill.user_id
-        %td=l bill.created_at
+        %td= bill.status
+        %td= bill.amount
         %td
           = link_to t('.edit', :default => t("helpers.links.edit")), edit_bill_path(bill), :class => 'btn btn-mini'
           = link_to t('.destroy', :default => t("helpers.links.destroy")), bill_path(bill), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-mini btn-danger'

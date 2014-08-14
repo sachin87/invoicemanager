@@ -4,32 +4,20 @@
 %table.table.table-striped
   %thead
     %tr
-      %th= model_class.human_attribute_name(:id)
-      %th= model_class.human_attribute_name(:summary)
-      %th= model_class.human_attribute_name(:from)
-      %th= model_class.human_attribute_name(:date)
-      %th= model_class.human_attribute_name(:number)
-      %th= model_class.human_attribute_name(:to)
-      %th= model_class.human_attribute_name(:due_on)
-      %th= model_class.human_attribute_name(:estimate_number)
-      %th= model_class.human_attribute_name(:estimate_notes)
-      %th= model_class.human_attribute_name(:user_id)
-      %th= model_class.human_attribute_name(:created_at)
+      %th Date
+      %th Estimate Details
+      %th Client
+      %th Status
+      %th Amount
       %th=t '.actions', :default => t("helpers.actions")
   %tbody
     - @estimates.each do |estimate|
       %tr
-        %td= link_to estimate.id, estimate_path(estimate)
-        %td= estimate.summary
-        %td= estimate.from
         %td= estimate.date
-        %td= estimate.number
+        %td= estimate.summary
         %td= estimate.to
-        %td= estimate.due_on
-        %td= estimate.estimate_number
-        %td= estimate.estimate_notes
-        %td= estimate.user_id
-        %td=l estimate.created_at
+        %td= estimate.status
+        %td= estimate.amount
         %td
           = link_to t('.edit', :default => t("helpers.links.edit")), edit_estimate_path(estimate), :class => 'btn btn-mini'
           = link_to t('.destroy', :default => t("helpers.links.destroy")), estimate_path(estimate), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-mini btn-danger'
