@@ -14,7 +14,8 @@ class BillsController < ApplicationController
 
   # GET /bills/new
   def new
-    @bill = Bill.new
+    @bill = current_user.bills.new
+    @bill.items.build
   end
 
   # GET /bills/1/edit

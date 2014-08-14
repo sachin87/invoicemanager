@@ -1,13 +1,31 @@
 = simple_form_for @bill, :html => { :class => 'form-horizontal' } do |f|
-  = f.input :summary
-  = f.input :from
-  = f.input :date
-  = f.input :bill_number
-  = f.input :to
-  = f.input :due_on
-  = f.input :purchase_order_number
-  = f.input :invoice_notes
-  = f.input :user_id
-  .form-actions
-    = f.button :submit, :class => 'btn-primary'
-    = link_to t('.cancel', :default => t("helpers.links.cancel")), bills_path, :class => 'btn'
+  .span12
+    = f.input :summary
+  %br
+  .span12
+    .span6
+      From
+      %br
+      = current_user. first_name
+      %br
+    .span6
+      = f.input :date, as: :string, input_html: { class: 'datepicker' }
+  .span12
+    .span6
+      To add your business address here, please update your business profile.
+    .span6
+      = f.input :bill_number
+  .span12
+    .span6
+      = f.input :due_on, collection: DUE_IN, include_blank: false
+    .span6
+      = f.input :purchase_order_number
+  .span12
+    = f.simple_fields_for :items do |items_form|
+      = render 'item_fields', items_form: items_form
+    = link_to_add_fields "Add Items", f, :items
+    = f.input :bill_notes
+  .span12
+    .form-actions
+      = f.button :submit, :class => 'btn-primary'
+      = link_to t('.cancel', :default => t("helpers.links.cancel")), bills_path, :class => 'btn'
