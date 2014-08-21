@@ -26,3 +26,13 @@ $ ->
     noResultsText: 'No client found with given first name'
     preventDuplicates: true
     tokenLimit: 1
+
+$ ->
+  $("[id$='category_tokens']").tokenInput "/categories.json",
+    crossDomain: false
+    prePopulate: $("[id$='category_tokens']").data("pre")
+    theme: "facebook"
+    hintText: 'Type in a name of category'
+    noResultsText: 'No category found with given name'
+    preventDuplicates: true
+    tokenLimit: 1

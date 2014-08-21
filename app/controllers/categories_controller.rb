@@ -4,7 +4,11 @@ class CategoriesController < ApplicationController
   # GET /categories
   # GET /categories.json
   def index
-    @categories = Category.all
+    @categories = Category.order(:name)
+    respond_to do |format|
+      format.html
+      format.json { render json: @categories.tokens(params[:q])  }
+    end
   end
 
   # GET /categories/1
