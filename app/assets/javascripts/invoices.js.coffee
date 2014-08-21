@@ -15,8 +15,14 @@ jQuery ->
     $(this).before($(this).data('fields').replace(regexp, time))
     event.preventDefault()
 
+  $('#invoice_invoice_due').chosen()
+
 $ ->
   $("#invoice_receiver_tokens").tokenInput "/clients.json",
     crossDomain: false
     prePopulate: $("#invoice_receiver_tokens").data("pre")
     theme: "facebook"
+    hintText: 'Type in a first name of client'
+    noResultsText: 'No client found with given first name'
+    preventDuplicates: true
+    tokenLimit: 1
