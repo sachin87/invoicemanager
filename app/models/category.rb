@@ -1,12 +1,7 @@
 class Category < ActiveRecord::Base
 
   def self.tokens(query)
-    authors = where("name like ?", "%#{query}%")
-    if authors.empty?
-      [{id: "<<<#{query}>>>", name: "New: \"#{query}\""}]
-    else
-      authors
-    end
+    where("name like ?", "%#{query}%")
   end
 
   def self.ids_from_tokens(tokens)

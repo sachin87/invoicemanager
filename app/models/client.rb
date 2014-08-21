@@ -1,12 +1,7 @@
 class Client < ActiveRecord::Base
 
   def self.tokens(query)
-    authors = where("first_name like ?", "%#{query}%")
-    if authors.empty?
-      [{id: "<<<#{query}>>>", first_name: "New: \"#{query}\""}]
-    else
-      authors
-    end
+    where("first_name like ?", "%#{query}%")
   end
 
   def self.ids_from_tokens(tokens)

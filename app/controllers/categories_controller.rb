@@ -7,7 +7,7 @@ class CategoriesController < ApplicationController
     @categories = Category.order(:name)
     respond_to do |format|
       format.html
-      format.json { render json: @categories.tokens(params[:q])  }
+      format.json { render json: @categories.tokens(params[:q]) }
     end
   end
 
