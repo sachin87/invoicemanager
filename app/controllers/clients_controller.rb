@@ -4,7 +4,11 @@ class ClientsController < ApplicationController
   # GET /clients
   # GET /clients.json
   def index
-    @clients = Client.all
+    @clients = Client.order(:first_name)
+    respond_to do |format|
+      format.html
+      format.json { render json: @clients.tokens(params[:q]) }
+    end
   end
 
   # GET /clients/1

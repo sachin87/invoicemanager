@@ -36,6 +36,8 @@ gem 'simple_form'
 gem 'bootstrap-datepicker-rails'
 gem 'money-rails'
 gem 'pundit'
+gem 'chosen-rails'
+gem 'jquery-tokeninput-rails'
 group :production do
   gem 'pg'
 end

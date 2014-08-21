@@ -11,6 +11,8 @@
  * file per style scope.
  *
  *= require_tree .
+ *= require chosen
+ *= require token-input-facebook
  *= require bootstrap_and_overrides
  *= require bootstrap-datepicker3
  *= require_self

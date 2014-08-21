@@ -15,6 +15,8 @@
 //= require twitter/bootstrap
 //= require turbolinks
 //= require bootstrap-datepicker
+//= require chosen-jquery
+//= require jquery.tokeninput
 //= require_tree .
 
 

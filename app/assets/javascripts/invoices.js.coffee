@@ -14,3 +14,9 @@ jQuery ->
     regexp = new RegExp($(this).data('id'), 'g')
     $(this).before($(this).data('fields').replace(regexp, time))
     event.preventDefault()
+
+  #$('#invoice_receiver_tokens').chosen()
+
+  $('#invoice_receiver_tokens').tokenInput '/clients.json'
+  theme: 'facebook'
+  prePopulate: $('#invoice_receiver_tokens').data('load')
