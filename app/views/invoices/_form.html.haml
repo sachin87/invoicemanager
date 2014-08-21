@@ -12,7 +12,11 @@
       = f.input :date, as: :string, input_html: { class: 'datepicker' }
   .span12
     .span6
-      To add your business address here, please update your business profile.
+      To add your business address here, please update your
+      = link_to 'business profile.', new_client_path
+      %br
+      = link_to 'New Client', new_client_path
+      = f.input :receiver
     .span6
       = f.input :invoice_number
   .span12
