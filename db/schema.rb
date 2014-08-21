@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140821060055) do
+ActiveRecord::Schema.define(version: 20140821111227) do
 
   create_table "bills", force: true do |t|
     t.string   "summary"
@@ -28,6 +28,15 @@ ActiveRecord::Schema.define(version: 20140821060055) do
   end
 
   add_index "bills", ["user_id"], name: "index_bills_on_user_id"
+
+  create_table "categories", force: true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.decimal  "unit_price"
+    t.string   "unit"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "clients", force: true do |t|
     t.string   "first_name"
