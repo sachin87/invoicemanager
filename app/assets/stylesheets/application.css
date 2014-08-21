@@ -13,6 +13,7 @@
  *= require_tree .
  *= require chosen
  *= require token-input-facebook
+ *= require font-awesome
  *= require bootstrap_and_overrides
  *= require bootstrap-datepicker3
  *= require_self

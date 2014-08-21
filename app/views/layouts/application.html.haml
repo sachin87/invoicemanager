@@ -25,15 +25,15 @@
             %span.icon-bar
             %span.icon-bar
             %span.icon-bar
-          %a.brand(href="#") Invoicemanager
+          %a.brand.fa.fa-home(href="#") Invoicemanager
           .container.nav-collapse
             %ul.nav.pull-right
-              %li= link_to current_user.first_name, current_user if current_user
-              %li= link_to "Upgrade", "/path1"
-              %li= link_to "Support", "/path2"
-              %li= link_to "Settings", "/path3"
+              %li= link_to current_user.first_name, current_user, class: 'fa fa-user' if current_user
+              %li= link_to "Upgrade", "/path1", class: 'fa fa-arrow-up'
+              %li= link_to "Support", "/path2", class: 'fa fa-life-ring'
+              %li= link_to "Settings", "/path3", class: 'fa fa-cog'
               - if user_signed_in?
-                %li= link_to 'Log Out',  ' /users/sign_out', method: :delete
+                %li= link_to 'Log Out', '/users/sign_out', method: :delete, class: 'fa fa-sign-out'
 
     .container-fluid
 
@@ -42,14 +42,14 @@
           .well.sidebar-nav
             %ul.nav.nav-list
               %li.nav-header Sidebar
-              %li= link_to "Dashboard", root_path
+              %li= link_to "Dashboard", root_path, class: 'fa fa-tachometer'
               %li= link_to "Invoices", invoices_path
               %li= link_to "Bills", bills_path
               %li= link_to "Estimates", estimates_path
               %li= link_to "Track", entries_path
               %li= link_to "Network",users_path
-              %li= link_to "Files", '#'
-              %li= link_to "Trash", '#'
+              %li= link_to "Files", '#', class: 'fa fa-file'
+              %li= link_to "Trash", '#', class: 'fa fa-trash-o'
         .span9
           = bootstrap_flash
           = yield

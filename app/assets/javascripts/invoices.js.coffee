@@ -15,8 +15,8 @@ jQuery ->
     $(this).before($(this).data('fields').replace(regexp, time))
     event.preventDefault()
 
-  #$('#invoice_receiver_tokens').chosen()
-
-  $('#invoice_receiver_tokens').tokenInput '/clients.json'
-  theme: 'facebook'
-  prePopulate: $('#invoice_receiver_tokens').data('load')
+$ ->
+  $("#invoice_receiver_tokens").tokenInput "/clients.json",
+    crossDomain: false
+    prePopulate: $("#invoice_receiver_tokens").data("pre")
+    theme: "facebook"

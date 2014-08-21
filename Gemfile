@@ -38,6 +38,8 @@ gem 'money-rails'
 gem 'pundit'
 gem 'chosen-rails'
 gem 'jquery-tokeninput-rails'
+gem 'thin'
+gem "font-awesome-rails"
 group :production do
   gem 'pg'
 end
@@ -50,6 +52,7 @@ end
 group :development, :test do
   gem 'rspec-rails', '~> 3.0.0'
   gem 'factory_girl_rails'
+  gem 'pry'
 end
 
 # Use ActiveModel has_secure_password

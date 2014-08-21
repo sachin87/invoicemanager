@@ -7,7 +7,7 @@ class ClientsController < ApplicationController
     @clients = Client.order(:first_name)
     respond_to do |format|
       format.html
-      format.json { render json: @clients.tokens(params[:q]) }
+      format.json { render json: @clients.tokens(params[:q]).map { |client| {"id" => client.id.to_s, "name" => client.first_name }} }
     end
   end
 

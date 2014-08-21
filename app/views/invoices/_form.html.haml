@@ -16,7 +16,7 @@
       = link_to 'business profile.', new_client_path
       %br
       = link_to 'New Client', new_client_path
-      = f.input :receiver_tokens, data: {load: Client.all}
+      = f.input :receiver_tokens, :input_html => {"data-pre" => Client.all.map { |client| {"id" => client.id.to_s, "name" => client.first_name }}.to_json}
     .span6
       = f.input :invoice_number
   .span12
