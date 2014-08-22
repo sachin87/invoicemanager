@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :settings, only: :index
+
   resources :categories
 
   resources :clients

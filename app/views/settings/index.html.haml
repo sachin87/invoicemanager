@@ -1,0 +1,54 @@
+.page-header
+  .h1 SETTINGS
+
+.span12
+  Account Owner
+  = current_user.full_name
+.span12
+  Hiveage ID
+  = current_user.email
+  = link_to 'Change', '#'
+.span12
+  Account Created
+  = current_user.created_at
+
+.span12
+  = link_to 'System Preferences', '#'
+  %br
+  Your default currency, number formats, custom domain, statement defaults etc.
+  %br
+
+  = link_to 'Team', teams_path
+  %br
+  Manage your team, invite new members and set permissions
+  %br
+
+  = link_to 'Taxes, Discounts and Shipping', '#'
+  %br
+  Your taxes, discounts and shipping settings
+  %br
+
+  = link_to 'Saved Categories', categories_path
+  %br
+  Your saved line items, expense categories, tasks and trips
+  %br
+
+  = link_to 'Account Customizations', '#'
+  %br
+  Select statement types, customize branding and emails
+  %br
+
+  = link_to 'Modules Settings', '#'
+  %br
+  Change settings for your modules at the Upgrade page
+  %br
+
+  =link_to 'Data Import/Export', '#'
+  %br
+  Import data from 3rd party apps to Hiveage. Also export your data as CSV file archive from Hiveage
+  %br
+
+  =link_to 'Reset or Cancel Account', '#'
+  %br
+  Delete all your data or cancel your account permanently
+  %br

@@ -1,15 +1,14 @@
-- model_class = Category
 .page-header
-  %h1=t '.title', :default => model_class.model_name.human.pluralize.titleize
+  %h1 SAVED CATEGORIES
 %table.table.table-striped
   %thead
     %tr
-      %th= model_class.human_attribute_name(:id)
-      %th= model_class.human_attribute_name(:name)
-      %th= model_class.human_attribute_name(:description)
-      %th= model_class.human_attribute_name(:unit_price)
-      %th= model_class.human_attribute_name(:unit)
-      %th= model_class.human_attribute_name(:created_at)
+      %th ID
+      %th Name
+      %th Description
+      %th Unit Price
+      %th Unit
+      %th Created at
       %th=t '.actions', :default => t("helpers.actions")
   %tbody
     - @categories.each do |category|
