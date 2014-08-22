@@ -40,6 +40,7 @@ gem 'chosen-rails'
 gem 'jquery-tokeninput-rails'
 gem 'thin'
 gem "font-awesome-rails"
+gem 'state_machine'
 group :production do
   gem 'pg'
 end

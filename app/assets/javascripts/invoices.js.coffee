@@ -26,7 +26,6 @@ jQuery ->
 
   $('#invoice_invoice_due').chosen()
 
-$ ->
   $("#invoice_receiver_tokens").tokenInput "/clients.json",
     crossDomain: false
     prePopulate: $("#invoice_receiver_tokens").data("pre")
@@ -36,7 +35,6 @@ $ ->
     preventDuplicates: true
     tokenLimit: 1
 
-$ ->
   $("input[id$='category_tokens']").tokenInput "/categories.json",
     crossDomain: false
     prePopulate: $("input[id$='category_tokens']").data("pre")
@@ -45,3 +43,9 @@ $ ->
     noResultsText: 'No category found with given name'
     preventDuplicates: true
     tokenLimit: 1
+#    onAdd: (item) ->
+#      alert "Added " + toSource(item)
+#      return
+#    onDelete: (item) ->
+#      alert "Deleted " + item.name
+#      return

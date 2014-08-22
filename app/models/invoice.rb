@@ -15,4 +15,8 @@ class Invoice < ActiveRecord::Base
     self.receiver_id = Client.ids_from_tokens(tokens)
   end
 
+  def receiver_fullname
+    receiver && receiver.full_name
+  end
+
 end
