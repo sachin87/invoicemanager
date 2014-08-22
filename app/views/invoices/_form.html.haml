@@ -6,7 +6,8 @@
     .span6
       From
       %br
-      = current_user. first_name
+      %strong
+        = current_user.first_name
       %br
     .span6
       = f.input :date, as: :string, input_html: { class: 'datepicker' }
