@@ -14,6 +14,15 @@ jQuery ->
     regexp = new RegExp($(this).data('id'), 'g')
     $(this).before($(this).data('fields').replace(regexp, time))
     event.preventDefault()
+    id = '#' + $("input[id$='category_tokens']").last().attr('id')
+    $(id).tokenInput "/categories.json",
+      crossDomain: false
+      prePopulate: $(id).data("pre")
+      theme: "facebook"
+      hintText: 'Type in a name of category'
+      noResultsText: 'No category found with given name'
+      preventDuplicates: true
+      tokenLimit: 1
 
   $('#invoice_invoice_due').chosen()
 
@@ -28,9 +37,9 @@ $ ->
     tokenLimit: 1
 
 $ ->
-  $("[id$='category_tokens']").tokenInput "/categories.json",
+  $("input[id$='category_tokens']").tokenInput "/categories.json",
     crossDomain: false
-    prePopulate: $("[id$='category_tokens']").data("pre")
+    prePopulate: $("input[id$='category_tokens']").data("pre")
     theme: "facebook"
     hintText: 'Type in a name of category'
     noResultsText: 'No category found with given name'

@@ -28,12 +28,28 @@
           %a.brand.fa.fa-home(href="#") Invoicemanager
           .container.nav-collapse
             %ul.nav.pull-right
-              %li= link_to current_user.first_name, current_user, class: 'fa fa-user fa-lg' if current_user
-              %li= link_to "Upgrade", "/path1", class: 'fa fa-arrow-up fa-lg'
-              %li= link_to "Support", "/path2", class: 'fa fa-life-ring fa-lg'
-              %li= link_to "Settings", "/path3", class: 'fa fa-cog fa-lg'
+              %li
+                - if current_user
+                  = link_to current_user do
+                    %i.fa.fa-user.fa-lg
+                      = current_user.first_name
+              %li
+                = link_to "/path1" do
+                  %i.fa.fa-arrow-up.fa-lg
+                    Upgrade
+              %li
+                = link_to "/path2" do
+                  %i.fa.fa-life-ring.fa-lg
+                    Support
+              %li
+                = link_to "/path3" do
+                  %i.fa.fa-cog.fa-lg
+                    Settings
               - if user_signed_in?
-                %li= link_to 'Log Out', '/users/sign_out', method: :delete, class: 'fa fa-sign-out fa-lg'
+                %li
+                  = link_to '/users/sign_out', method: :delete do
+                    %i.fa.fa-sign-out.fa-lg
+                      Log Out
 
     .container-fluid
 
@@ -42,14 +58,38 @@
           .well.sidebar-nav
             %ul.nav.nav-list
               %li.nav-header Sidebar
-              %li= link_to "Dashboard", root_path, class: 'fa fa-tachometer fa-lg'
-              %li= link_to "Invoices", invoices_path, class: 'fa fa-file fa-lg'
-              %li= link_to "Bills", bills_path, class: 'fa fa-file-o fa-lg'
-              %li= link_to "Estimates", estimates_path, class: 'fa fa-file-text fa-lg'
-              %li= link_to "Track", entries_path, class: 'fa fa-road fa-lg'
-              %li= link_to "Network",users_path, class: 'fa fa-users fa-lg'
-              %li= link_to "Files", '#', class: 'fa fa-file fa-lg'
-              %li= link_to "Trash", '#', class: 'fa fa-trash-o fa-lg'
+              %li
+                = link_to root_path do
+                  %i.fa.fa-tachometer.fa-lg
+                    Dashboard
+              %li
+                = link_to invoices_path do
+                  %i.fa.fa-file.fa-lg
+                    Invoices
+              %li
+                = link_to bills_path do
+                  %i.fa.fa-file-o.fa-lg
+                    Bills
+              %li
+                = link_to estimates_path do
+                  %i.fa.fa-file-text.fa-lg
+                    Estimates
+              %li
+                = link_to entries_path do
+                  %i.fa.fa-road.fa-lg
+                    Track
+              %li
+                = link_to users_path do
+                  %i.fa.fa-users.fa-lg
+                    Network
+              %li
+                = link_to '#' do
+                  %i.fa.fa-file.fa-lg
+                    Files
+              %li
+                = link_to '#' do
+                  %i.fa.fa-trash-o.fa-lg
+                    Trash
         .span9
           = bootstrap_flash
           = yield
