@@ -21,7 +21,7 @@
 %p
   %strong= model_class.human_attribute_name(:to) + ':'
   %br
-  = @invoice.receiver_id
+  = @invoice.receiver.try(:first_name)
 %p
   %strong= model_class.human_attribute_name(:invoice_due) + ':'
   %br
@@ -38,6 +38,15 @@
   %strong= model_class.human_attribute_name(:user_id) + ':'
   %br
   = @invoice.user_id
+%p
+  %strong categories:
+  %br
+  - @invoice.categories.each do |category|
+    = category.description
+    = category.quantity
+    = category.rate
+    = category.amount
+
 
 .form-actions
   = link_to t('.back', :default => t("helpers.links.back")), invoices_path, :class => 'btn'
