@@ -16,7 +16,6 @@
     = favicon_link_tag 'apple-touch-icon-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png'
     = favicon_link_tag 'favicon.ico', :rel => 'shortcut icon'
     = javascript_include_tag "application"
-
   %body
     .navbar.navbar-fluid-top
       .navbar-inner
@@ -50,9 +49,7 @@
                   = link_to '/users/sign_out', method: :delete do
                     %i.fa.fa-sign-out.fa-lg
                       Log Out
-
     .container-fluid
-
       .row-fluid
         .span3
           .well.sidebar-nav
@@ -93,6 +90,5 @@
         .span9
           = bootstrap_flash
           = yield
-    
       %footer
         %p Invoiceman &copy; Company 2014
