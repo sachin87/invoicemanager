@@ -1,6 +1,7 @@
 = simple_form_for @invoice, :html => { :class => 'form-horizontal' } do |f|
   .span12
-    = f.input :summary
+    %strong Invoice
+    = f.input :summary, placeholder: 'Type invoice summary here ...', label: false
   %br
   .span12
     .span6
