@@ -1,20 +1,16 @@
 = simple_form_for @bill, :html => { :class => 'form-horizontal' } do |f|
   .span12
     %strong Bill
-    = f.input :summary, placeholder: 'Type bill summary here ...', label: false
+    = f.input :summary, placeholder: 'Type bill summary here ...', label: false, input_html: {class: 'input_box summary'}
   %br
   .span12
-    .span6
+    .span4
       .span6
         From
       .span6
         = link_to 'New Vendor', new_client_path
       = f.input :receiver_tokens, label: false, :input_html => {"data-pre" => {"id" => @bill.receiver.try(:id), "name" => @bill.receiver.try(:first_name) }.to_json}
       %br
-    .span6
-      = f.input :date, as: :string, input_html: { class: 'datepicker' }
-  .span12
-    .span6
       From
       %br
       %strong
@@ -22,22 +18,23 @@
       %br
       %br
       %br
+      To add your business address here,
       %br
-      %br
-      To add your business address here, please update your
-      = link_to 'business profile.', new_client_path
-    .span6
-      = f.input :bill_number
+      please update your #{link_to 'business profile.', new_client_path, class: 'btn btn-info'}
+    .span4
+      = f.input :date, as: :string, input_html: { class: 'datepicker input_box' }
+      = f.input :bill_number, input_html: {class: 'input_box'}
+      = f.input :due_on, collection: DUE_IN, include_blank: false
+      = f.input :purchase_order_number, label: 'Bill Reference Number', input_html: {class: 'input_box'}
+    .span4
   .span12
     .span6
     .span6
-      = f.input :due_on, collection: DUE_IN, include_blank: false
-      = f.input :purchase_order_number
   .span12
     = f.simple_fields_for :items do |items_form|
       = render 'item_fields', items_form: items_form
     = link_to_add_fields "Add Items", f, :items
-    = f.input :bill_notes
+    = f.input :bill_notes, as: :string, input_html: {class: 'bill_notes'}
   .span12
     .form-actions
       = f.button :submit, :class => 'btn-primary'

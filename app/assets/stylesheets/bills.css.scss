@@ -1,3 +1,21 @@
 // Place all the styles related to the Bills controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.add_item{
+  margin-top: 1%;
+}
+
+input.input_box {
+  height: 30px !important;
+}
+
+input.summary{
+  width: 52%;
+}
+
+input.bill_notes{
+  width: 80%;
+  height: 75px !important;
+}
