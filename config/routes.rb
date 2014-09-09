@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :currencies
+
+  resources :countries
+
   resources :settings, only: :index
 
   resources :categories

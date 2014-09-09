@@ -1,5 +1,8 @@
 class Client < ActiveRecord::Base
 
+  has_one :country
+  has_one :currency
+
   def self.tokens(query)
     where("first_name like ?", "%#{query}%")
   end

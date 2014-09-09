@@ -25,8 +25,7 @@ class EstimatesController < ApplicationController
   # POST /estimates
   # POST /estimates.json
   def create
-    @estimate = current_user.estimates.new(estimate_params)
-
+    @estimate = current_user.estimates.new(estimate_params) 
     respond_to do |format|
       if @estimate.save
         format.html { redirect_to @estimate, notice: 'Estimate was successfully created.' }
@@ -70,6 +69,9 @@ class EstimatesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def estimate_params
-      params.require(:estimate).permit(:summary, :from, :date, :number, :to, :due_on, :estimate_number, :estimate_notes)
+      params.require(:estimate).permit(:summary, :receiver_tokens, :date, :estimate_number,
+                                       :due_on, :estimate_notes, items_attributes: [ :estimate_category_tokens, :quantity,
+                                                                    :rate, :amount, :_destroy])
     end
+
 end
