@@ -15,9 +15,9 @@ jQuery ->
     preventDuplicates: true
     tokenLimit: 1
 
-  $("input[id$='category_tokens']").tokenInput "/categories.json",
+  $("input[id$='estimate_category_tokens']").tokenInput "/categories.json",
     crossDomain: false
-    prePopulate: $("input[id$='category_tokens']").data("pre")
+    prePopulate: $(this).data("pre")
     theme: "facebook"
     hintText: 'Type in a name of category'
     noResultsText: 'No category found with given name'

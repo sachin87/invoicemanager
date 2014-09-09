@@ -5,26 +5,33 @@
   %br
   .span12
     .span6
-      From
-      %br
-      %strong
-        = current_user.first_name
+      .span6
+        From
+      .span6
+        = link_to 'New Vendor', new_client_path
+      = f.input :receiver_tokens, label: false, :input_html => {"data-pre" => {"id" => @bill.receiver.try(:id), "name" => @bill.receiver.try(:first_name) }.to_json}
       %br
     .span6
       = f.input :date, as: :string, input_html: { class: 'datepicker' }
   .span12
     .span6
+      From
+      %br
+      %strong
+        = current_user.first_name
+      %br
+      %br
+      %br
+      %br
+      %br
       To add your business address here, please update your
       = link_to 'business profile.', new_client_path
-      %br
-      = link_to 'New Client', new_client_path
-      = f.input :receiver_tokens, :input_html => {"data-pre" => {"id" => @bill.receiver.try(:id), "name" => @bill.receiver.try(:first_name) }.to_json}
     .span6
       = f.input :bill_number
   .span12
     .span6
-      = f.input :due_on, collection: DUE_IN, include_blank: false
     .span6
+      = f.input :due_on, collection: DUE_IN, include_blank: false
       = f.input :purchase_order_number
   .span12
     = f.simple_fields_for :items do |items_form|
