@@ -31,7 +31,7 @@
     = f.simple_fields_for :items do |items_form|
       = render 'item_fields', items_form: items_form
     = link_to_add_fields "Add Items", f, :items
-    = f.input :bill_notes, as: :string, input_html: {class: 'bill_notes'}
+    = f.input :bill_notes, input_html: {class: 'bill_notes'}
   .span12
     .form-actions
       = f.button :submit, :class => 'btn-primary'
