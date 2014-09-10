@@ -22,7 +22,9 @@ class Item < ActiveRecord::Base
   private
 
      def set_description
-       self.description = category.name_with_description
+       if category.present?
+         self.description = category.name_with_description
+       end
      end
 
 end

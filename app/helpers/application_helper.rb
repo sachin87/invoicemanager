@@ -10,7 +10,19 @@ module ApplicationHelper
   end
 
   def data_pre_text(items_form)
-    {"id" => items_form.object.try(:id), "name" => items_form.object.try(:description) }.to_json
+    if items_form.object.new_record?
+      [].to_json
+    else
+      [{ "name" => items_form.object.try(:description), "id" => items_form.object.try(:id).to_s  }].to_json
+    end
+  end
+
+  def client_tokens(object)
+    if object.new_record?
+      [].to_json
+    else
+      [{"id" => object.receiver.try(:id), "name" => object.receiver.try(:first_name) }].to_json
+    end
   end
 
 end

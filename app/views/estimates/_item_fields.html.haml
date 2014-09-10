@@ -1,7 +1,7 @@
 %fieldset
   .span3
     = items_form.input :estimate_category_tokens, label: 'Description', inline_label: 'Type Name & Description',
-                       :input_html => {"data-pre" => data_pre_text(items_form) }
+                       input_html: {data: {pre: data_pre_text(items_form) }}
     -#= items_form.input :date, as: :string, input_html: { class: 'datepicker' }
     -#= items_form.input :link
     -#= items_form.input :tag_list

@@ -28,12 +28,15 @@ jQuery ->
 
   $("#invoice_receiver_tokens").tokenInput "/clients.json",
     crossDomain: false
-    prePopulate: $("#invoice_receiver_tokens").data("pre")
+    prePopulate: $(this).data("pre")
     theme: "facebook"
     hintText: 'Type in a first name of client'
     noResultsText: 'No client found with given first name'
     preventDuplicates: true
     tokenLimit: 1
+
+
+   console.log("/categories.json")
 
   $("input[id$='invoice_category_tokens']").tokenInput "/categories.json",
     crossDomain: false

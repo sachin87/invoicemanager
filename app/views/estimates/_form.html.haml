@@ -19,7 +19,7 @@
         To
       .span8
         = link_to 'New Client', new_client_path
-      = f.input :receiver_tokens, label: false, :input_html => {"data-pre" => {"id" => @estimate.receiver.try(:id), "name" => @estimate.receiver.try(:first_name) }.to_json}
+      = f.input :receiver_tokens, label: false, :input_html => {"data-pre" => client_tokens(@estimate)}
     .span4
       = f.input :date, as: :string, input_html: { class: 'datepicker input_box' }
       = f.input :estimate_number, input_html: {class: 'input_box'}
