@@ -39,13 +39,21 @@
   %br
   = @invoice.user_id
 %p
-  %strong categories:
+  %strong items:
   %br
-  - @invoice.categories.each do |category|
-    = category.description
-    = category.quantity
-    = category.rate
-    = category.amount
+  - @invoice.items.each do |item|
+    %p
+      description:
+      = item.description
+    %p
+      quantity:
+      = item.quantity
+    %p
+      rate:
+      = item.rate
+    %p
+      amount:
+      = item.amount
 
 
 .form-actions

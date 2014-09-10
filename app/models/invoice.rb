@@ -13,7 +13,7 @@ class Invoice < ActiveRecord::Base
   accepts_nested_attributes_for :items, allow_destroy: true
 
   def receiver_tokens=(tokens)
-    self.receiver_id = Client.ids_from_tokens(tokens)
+    self.receiver_id = Client.ids_from_tokens(tokens).first
   end
 
   def receiver_fullname
