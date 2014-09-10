@@ -25,7 +25,7 @@ class EstimatesController < ApplicationController
   # POST /estimates
   # POST /estimates.json
   def create
-    @estimate = current_user.estimates.new(estimate_params) 
+    @estimate = current_user.estimates.new(estimate_params)
     respond_to do |format|
       if @estimate.save
         format.html { redirect_to @estimate, notice: 'Estimate was successfully created.' }

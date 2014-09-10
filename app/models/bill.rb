@@ -6,13 +6,13 @@ class Bill < ActiveRecord::Base
   has_many :items, as: :itemeable
   belongs_to :receiver, class_name: 'Client'
 
-  validates :summary, :bill_to, :bill_number, :date, presence: true
+  validates :summary, :bill_number, :date, presence: true
   validates :bill_number, uniqueness: true
 
   accepts_nested_attributes_for :items, allow_destroy: true
 
   def receiver_tokens=(tokens)
-    self.receiver_id = Client.ids_from_tokens(tokens)
+    self.receiver_id = Client.ids_from_tokens(tokens).first.to_i
   end
 
   def receiver_fullname

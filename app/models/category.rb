@@ -1,5 +1,7 @@
 class Category < ActiveRecord::Base
 
+  has_many :items
+
   def self.tokens(query)
     where("name like ?", "%#{query}%")
   end

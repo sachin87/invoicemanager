@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140909113546) do
+ActiveRecord::Schema.define(version: 20140910061221) do
 
   create_table "bills", force: true do |t|
     t.string   "summary"
@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 20140909113546) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
+    t.integer  "receiver_id"
   end
 
   add_index "bills", ["user_id"], name: "index_bills_on_user_id"
@@ -130,6 +131,7 @@ ActiveRecord::Schema.define(version: 20140909113546) do
     t.integer  "user_id"
     t.string   "itemeable_type"
     t.integer  "itemeable_id"
+    t.integer  "category_id"
   end
 
   add_index "items", ["user_id"], name: "index_items_on_user_id"
