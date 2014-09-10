@@ -70,8 +70,8 @@ class BillsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def bill_params
       params.require(:bill).permit(:summary, :receiver_tokens, :date, :bill_number, :due_on, :purchase_order_number,
-                                   :bill_notes , items_attributes: [ :bill_category_tokens, :quantity,
-                                   :rate, :amount, :_destroy ])
+                                   :bill_notes, :id, items_attributes: [ :bill_category_tokens, :quantity,
+                                   :rate, :amount, :_destroy, :id ])
     end
 
 end

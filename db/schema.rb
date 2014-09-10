@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140910061221) do
+ActiveRecord::Schema.define(version: 20140910065818) do
 
   create_table "bills", force: true do |t|
     t.string   "summary"
@@ -26,6 +26,8 @@ ActiveRecord::Schema.define(version: 20140910061221) do
     t.datetime "updated_at"
     t.integer  "user_id"
     t.integer  "receiver_id"
+    t.string   "state"
+    t.decimal  "amount"
   end
 
   add_index "bills", ["user_id"], name: "index_bills_on_user_id"
@@ -97,6 +99,8 @@ ActiveRecord::Schema.define(version: 20140910061221) do
     t.datetime "updated_at"
     t.integer  "user_id"
     t.integer  "receiver_id"
+    t.string   "state"
+    t.decimal  "amount"
   end
 
   add_index "estimates", ["user_id"], name: "index_estimates_on_user_id"

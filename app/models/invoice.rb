@@ -4,6 +4,7 @@ class Invoice < ActiveRecord::Base
 
   belongs_to :user
   has_many :items, as: :itemeable
+  has_many :categories, through: :items
   belongs_to :receiver, class_name: 'Client'
 
   validates :summary, :invoice_number, :date, presence: true

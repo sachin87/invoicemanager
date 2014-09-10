@@ -9,7 +9,7 @@
         From
       .span6
         = link_to 'New Vendor', new_client_path
-      = f.input :receiver_tokens, label: false, :input_html => {"data-pre" => {"id" => @bill.receiver.try(:id), "name" => @bill.receiver.try(:first_name) }.to_json}
+      = f.input :receiver_tokens, label: false, :input_html => {"data-pre" => {"id" => @bill.receiver.try(:name), "name" => @bill.receiver.try(:first_name) }.to_json}
       %br
       To
       %br
