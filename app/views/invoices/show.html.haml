@@ -1,62 +1,44 @@
-- model_class = Invoice
-.page-header
-  %h1=t '.title', :default => model_class.model_name.human.titleize
-
-%p
-  %strong= model_class.human_attribute_name(:summary) + ':'
-  %br
+.span12
+  %strong Invoice
+  Summary
   = @invoice.summary
-%p
-  %strong= model_class.human_attribute_name(:from) + ':'
+%br
+.span12
+  .span4
+    From
+    %br
+    %strong
+      = current_user.first_name
+    %br
+    .span6
+      To
+    .span6
+      = @invoice.receiver.try(:name_with_address)
   %br
-  = @invoice.user.first_name
-%p
-  %strong= model_class.human_attribute_name(:date) + ':'
+  .span4
+    Date
+    = @invoice.date
+    %br
+    Invoice Number
+    = @invoice.invoice_number
+    %br
+    Invoice Due
+    = @invoice.invoice_due
+    %br
+    Purchase Order Number
+    = @invoice.purchase_order_number
+    %br
+  .span4
   %br
-  = @invoice.date
-%p
-  %strong= model_class.human_attribute_name(:invoice_number) + ':'
-  %br
-  = @invoice.invoice_number
-%p
-  %strong= model_class.human_attribute_name(:to) + ':'
-  %br
-  = @invoice.receiver.try(:first_name)
-%p
-  %strong= model_class.human_attribute_name(:invoice_due) + ':'
-  %br
-  = @invoice.invoice_due
-%p
-  %strong= model_class.human_attribute_name(:purchase_order_number) + ':'
-  %br
-  = @invoice.purchase_order_number
-%p
-  %strong= model_class.human_attribute_name(:invoice_notes) + ':'
-  %br
-  = @invoice.invoice_notes
-%p
-  %strong= model_class.human_attribute_name(:user_id) + ':'
-  %br
-  = @invoice.user_id
-%p
-  %strong items:
-  %br
+.span12
   - @invoice.items.each do |item|
-    %p
-      description:
+    .span3
       = item.description
-    %p
-      quantity:
+    .span2.small_width
       = item.quantity
-    %p
-      rate:
+    .span2.small_width
       = item.rate
-    %p
-      amount:
+    .span2
       = item.amount
-
-
-.form-actions
-  = link_to t('.back', :default => t("helpers.links.back")), invoices_path, :class => 'btn'
-  = link_to t('.edit', :default => t("helpers.links.edit")), edit_invoice_path(@invoice), :class => 'btn'
-  = link_to t('.destroy', :default => t("helpers.links.destroy")), invoice_path(@invoice), :method => "delete", :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-danger'
+.span12
+  = @invoice.invoice_notes

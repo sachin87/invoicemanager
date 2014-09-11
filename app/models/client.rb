@@ -12,4 +12,16 @@ class Client < ActiveRecord::Base
     tokens.split(',')
   end
 
+  def address
+    [street_address, city, state, zipcode, country_id].join(',')
+  end
+
+  def name_with_address
+    [full_name, address].join(':')
+  end
+
+  def full_name
+    [first_name, last_name].join(' ')
+  end
+
 end

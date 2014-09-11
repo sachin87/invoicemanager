@@ -26,9 +26,6 @@
       = f.input :purchase_order_number, input_html: {class: 'input_box'}
     .span4
   .span12
-    .span6
-    .span6
-  .span12
     = f.simple_fields_for :items do |items_form|
       = render 'item_fields', items_form: items_form
     = link_to_add_fields "Add Items", f, :items
