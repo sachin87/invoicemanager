@@ -1,6 +1,8 @@
-- model_class = Bill
-.page-header
-  %h1 BILLS
+.span12
+  .span10
+    %h1 BILLS
+  .span2
+    = link_to t('.new', :default => t("helpers.links.new")), new_bill_path, :class => 'btn btn-primary'
 %table.table.table-striped
   %thead
     %tr
@@ -20,6 +22,5 @@
         %td= bill.amount
         %td
           = link_to t('.edit', :default => t("helpers.links.edit")), edit_bill_path(bill), :class => 'btn btn-mini'
+          = link_to t('.show', :default => t("helpers.links.show")), bill_path(bill), :class => 'btn btn-mini btn-info'
           = link_to t('.destroy', :default => t("helpers.links.destroy")), bill_path(bill), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-mini btn-danger'
-
-= link_to t('.new', :default => t("helpers.links.new")), new_bill_path, :class => 'btn btn-primary'
