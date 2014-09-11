@@ -19,4 +19,8 @@ class Estimate < ActiveRecord::Base
     receiver && receiver.full_name
   end
 
+  def sender_fullname
+    user && user.full_name
+  end
+
 end
