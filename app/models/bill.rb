@@ -17,11 +17,11 @@ class Bill < ActiveRecord::Base
     self.receiver_id = Client.ids_from_tokens(tokens).first.to_i
   end
 
-  def receiver_fullname
+  def receiver_full_name
     receiver && receiver.full_name
   end
 
-  def sender_fullname
+  def sender_full_name
     user && user.full_name
   end
 

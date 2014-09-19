@@ -1,8 +1,9 @@
-.span12
+.span12.bg-info
   .span8
-    %h3 Invoice
-    = @invoice.summary
-  .span4
+    %h2
+      INVOICE
+      =@invoice.invoice_number
+  .span4.button-set-crud
     .span2
       = link_to 'Edit', edit_invoice_path(@invoice), class: 'btn btn-primary'
     .span10
@@ -24,43 +25,63 @@
           %li=link_to 'Delete', '#'
 %br
 .span12
+  %h3 Invoice
+  .margin5pr
+    = @invoice.summary
+.span12
   .span4
     From
     %br
-    %strong
-      = @invoice.sender_fullname
-    %br
-    %br
+    .margin20pr
+      = @invoice.sender_full_name
     .span6
-      To
+      %strong To
     .span6
       = @invoice.receiver.try(:name_with_address)
   %br
   .span4
-    Date
-    = @invoice.date
-    %br
-    Invoice Number
-    = @invoice.invoice_number
-    %br
-    Invoice Due
-    = @invoice.invoice_due
-    %br
-    Purchase Order Number
-    = @invoice.purchase_order_number
-    %br
-  .span4
-  %br
+    %strong Date
+    .margin2pr
+      = @invoice.date
+    %strong Invoice Number
+    .margin2pr
+      = @invoice.invoice_number
+    %strong Invoice Due
+    .margin2pr
+      = @invoice.invoice_due
+    %strong Purchase Order Number
+    .margin10pr
+      = @invoice.purchase_order_number
 .span12
+  .span3
+    %strong
+      Description
+  .span3
+    %strong
+      Quantity
+  .span3
+    %strong
+      Rate
+  .span2
+    %strong
+      Amount
+.span12.margin2pr
   - @invoice.items.each do |item|
+    %hr
     .span3
       = item.description
-    .span2.small_width
+    .span3
       = item.quantity
-    .span2.small_width
+    .span3
       = item.rate
     .span2
       = item.amount
 .span12
-  Invoice Notes
-  = @invoice.invoice_notes
+  %strong Invoice Note
+  .margin10pr
+    = @invoice.invoice_notes
+
+.span12
+  %hr
+  Email: #{@invoice.user.email}
+
