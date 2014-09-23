@@ -1,8 +1,9 @@
-.span12
+.span12.bg-info
   .span8
-    %h3 Bill
-    = @bill.summary
-  .span4
+    %h2
+      BILL
+      =@bill.bill_number
+  .span4.button-set-crud
     .span2
       = link_to 'Edit', edit_bill_path(@bill), class: 'btn btn-primary'
     .span10
@@ -24,43 +25,63 @@
           %li=link_to 'Delete', '#'
 %br
 .span12
+  %h3 Bill
+  .margin5pr
+    = @bill.summary
+.span12
   .span4
     From
     %br
-    %strong
+    .margin20pr
       = @bill.sender_full_name
-    %br
-    %br
     .span6
-      To
+      %strong To
     .span6
       = @bill.receiver.try(:name_with_address)
   %br
   .span4
-    Date
-    = @bill.date
-    %br
-    Bill Number
-    = @bill.bill_number
-    %br
-    Bill Due
-    = @bill.due_on
-    %br
-    Purchase Order Number
-    = @bill.purchase_order_number
-    %br
-  .span4
-  %br
+    %strong Date
+    .margin2pr
+      = @bill.date
+    %strong Bill Number
+    .margin2pr
+      = @bill.bill_number
+    %strong Bill Due
+    .margin2pr
+      = @bill.due_on
+    %strong Purchase Order Number
+    .margin10pr
+      = @bill.purchase_order_number
 .span12
+  .span3
+    %strong
+      Description
+  .span3
+    %strong
+      Quantity
+  .span3
+    %strong
+      Rate
+  .span2
+    %strong
+      Amount
+.span12.margin2pr
   - @bill.items.each do |item|
+    %hr
     .span3
       = item.description
-    .span2.small_width
+    .span3
       = item.quantity
-    .span2.small_width
+    .span3
       = item.rate
     .span2
       = item.amount
 .span12
-  Bill Notes
-  = @bill.bill_notes
+  %strong Bill Note
+  .margin10pr
+    = @bill.bill_notes
+
+.span12
+  %hr
+  Email: #{@bill.user.email}
+
