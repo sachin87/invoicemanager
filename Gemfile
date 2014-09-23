@@ -40,6 +40,8 @@ gem 'chosen-rails'
 gem 'jquery-tokeninput-rails'
 gem 'thin'
 gem "font-awesome-rails"
+gem 'wicked_pdf'
+gem 'wkhtmltopdf-binary'
 gem 'state_machine'
 group :production do
   gem 'pg'

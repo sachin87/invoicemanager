@@ -1,5 +1,5 @@
 class InvoicesController < ApplicationController
-  before_action :set_invoice, only: [:show, :edit, :update, :destroy]
+  before_action :set_invoice, only: [:show, :edit, :update, :destroy, :preview]
 
   # GET /invoices
   # GET /invoices.json
@@ -59,6 +59,14 @@ class InvoicesController < ApplicationController
     respond_to do |format|
       format.html { redirect_to invoices_url, notice: 'Invoice was successfully destroyed.' }
       format.json { head :no_content }
+    end
+  end
+
+  def preview
+    respond_to do |format|
+      format.pdf do
+        render :pdf => 'index'
+      end
     end
   end
 
