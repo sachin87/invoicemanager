@@ -1,5 +1,5 @@
 class EstimatesController < ApplicationController
-  before_action :set_estimate, only: [:show, :edit, :update, :destroy]
+  before_action :set_estimate, only: [:show, :edit, :update, :destroy, :preview]
 
   # GET /estimates
   # GET /estimates.json
@@ -58,6 +58,14 @@ class EstimatesController < ApplicationController
     respond_to do |format|
       format.html { redirect_to estimates_url, notice: 'Estimate was successfully destroyed.' }
       format.json { head :no_content }
+    end
+  end
+
+  def preview
+    respond_to do |format|
+      format.pdf do
+        render :pdf => 'index'
+      end
     end
   end
 

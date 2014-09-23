@@ -23,9 +23,17 @@ Rails.application.routes.draw do
 
   resources :users
 
-  resources :estimates
+  resources :estimates do
+    member do
+      get :preview
+    end
+  end
 
-  resources :bills
+  resources :bills do
+    member do
+      get :preview
+    end
+  end
 
   resources :items
 

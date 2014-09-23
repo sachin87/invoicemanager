@@ -1,0 +1,70 @@
+= wicked_pdf_stylesheet_link_tag "application"
+
+.span12.bg-info
+  .span8
+    %h2
+      BILL
+      =@bill.bill_number
+  .span4.button-set-crud
+%br
+.span12
+  %h3 Bill
+  .margin5pr
+    = @bill.summary
+.span12
+  .span4
+    From
+    %br
+    .margin20pr
+      = @bill.sender_full_name
+    .span6
+      %strong To
+    .span6
+      = @bill.receiver.try(:name_with_address)
+  %br
+  .span4
+    %strong Date
+    .margin2pr
+      = @bill.date
+    %strong Bill Number
+    .margin2pr
+      = @bill.bill_number
+    %strong Bill Due
+    .margin2pr
+      = @bill.due_on
+    %strong Purchase Order Number
+    .margin10pr
+      = @bill.purchase_order_number
+.span12
+  .span3
+    %strong
+      Description
+  .span3
+    %strong
+      Quantity
+  .span3
+    %strong
+      Rate
+  .span2
+    %strong
+      Amount
+.span12.margin2pr
+  - @bill.items.each do |item|
+    %hr
+    .span3
+      = item.description
+    .span3
+      = item.quantity
+    .span3
+      = item.rate
+    .span2
+      = item.amount
+.span12
+  %strong Bill Note
+  .margin10pr
+    = @bill.bill_notes
+
+.span12
+  %hr
+  Email: #{@bill.user.email}
+

@@ -1,0 +1,67 @@
+= wicked_pdf_stylesheet_link_tag "application"
+
+.span12.bg-info
+  .span8
+    %h2
+      ESTIMATE
+      =@estimate.estimate_number
+  .span4.button-set-crud
+%br
+.span12
+  %h3 Estimate
+  .margin5pr
+    = @estimate.summary
+.span12
+  .span4
+    %strong
+      From
+    %br
+    .margin20pr
+      = @estimate.sender_full_name
+    .span6
+      %strong To
+    .span6
+      = @estimate.receiver.try(:name_with_address)
+  %br
+  .span4
+    %strong Date
+    .margin2pr
+      = @estimate.date
+    %strong Estimate Number
+    .margin2pr
+      = @estimate.estimate_number
+    %strong Estimate Due
+    .margin2pr
+      = @estimate.due_on
+.span12
+  .span3
+    %strong
+      Description
+  .span3
+    %strong
+      Quantity
+  .span3
+    %strong
+      Rate
+  .span2
+    %strong
+      Amount
+.span12.margin2pr
+  - @estimate.items.each do |item|
+    %hr
+    .span3
+      = item.description
+    .span3
+      = item.quantity
+    .span3
+      = item.rate
+    .span2
+      = item.amount
+.span12
+  %strong Estimate Note
+  .margin10pr
+    = @estimate.estimate_notes
+
+.span12
+  %hr
+  Email: #{@estimate.user.email}
