@@ -14,18 +14,18 @@
         %ul.dropdown-menu{"aria-labelledby" => "dLabel", :role => "menu"}
           %li=link_to 'Preview', '#'
           %li=link_to 'Share with Team', '#'
-          %li=link_to 'Send Bill', '#'
+          %li=link_to 'Send Estimate', '#'
           %li=link_to 'Download as PDF', '#'
-          %li.menu_group=link_to 'Bill Activity', '#'
+          %li.menu_group=link_to 'Estimate Activity', '#'
           %li=link_to 'Post Comment', '#'
           %li=link_to 'Enter payment', '#'
           %li=link_to 'Mark as Sent', '#'
-          %li=link_to 'Duplicate Bill', '#'
+          %li=link_to 'Duplicate Estimate', '#'
           %li.menu_group=link_to 'Close', '#'
           %li=link_to 'Delete', '#'
 %br
 .span12
-  %h3 Bill
+  %h3 Estimate
   .margin5pr
     = @estimate.summary
 .span12
@@ -44,10 +44,10 @@
     %strong Date
     .margin2pr
       = @estimate.date
-    %strong Bill Number
+    %strong Estimate Number
     .margin2pr
       = @estimate.estimate_number
-    %strong Bill Due
+    %strong Estimate Due
     .margin2pr
       = @estimate.due_on
 .span12
@@ -75,7 +75,7 @@
     .span2
       = item.amount
 .span12
-  %strong Bill Note
+  %strong Estimate Note
   .margin10pr
     = @estimate.estimate_notes
 
