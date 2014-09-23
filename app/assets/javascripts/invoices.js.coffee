@@ -23,6 +23,10 @@ jQuery ->
       noResultsText: 'No category found with given name'
       preventDuplicates: true
       tokenLimit: 1
+      onAdd: (item) ->
+        alert "Added " + item.toSource
+      onDelete: (item) ->
+        alert "Deleted " + item.name
 
   $('#invoice_invoice_due').chosen()
 
@@ -35,9 +39,6 @@ jQuery ->
     preventDuplicates: true
     tokenLimit: 1
 
-
-   console.log("/categories.json")
-
   $("input[id$='invoice_category_tokens']").tokenInput "/categories.json",
     crossDomain: false
     prePopulate: $(this).data("pre")
@@ -46,9 +47,7 @@ jQuery ->
     noResultsText: 'No category found with given name'
     preventDuplicates: true
     tokenLimit: 1
-#    onAdd: (item) ->
-#      alert "Added " + toSource(item)
-#      return
-#    onDelete: (item) ->
-#      alert "Deleted " + item.name
-#      return
+    onAdd: (item) ->
+      alert "Added " + item.toSource
+    onDelete: (item) ->
+      alert "Deleted " + item.name
