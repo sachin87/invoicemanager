@@ -9,6 +9,15 @@ jQuery ->
     $(this).closest('fieldset').hide()
     event.preventDefault()
 
+  autofill_category_details = (item, text_box_id) ->
+    prefix = text_box_id.split('_invoice')[0]
+    quantity_id = '#' + prefix + '_quantity'
+    $(quantity_id).val(item.quantity)
+    rate_id = '#' + prefix + '_rate'
+    $(rate_id).val(item.unit_price)
+    amount_id = '#' + prefix + '_amount'
+    $(amount_id).val(item.amount)
+
   $('form').on 'click', '.add_fields', (event) ->
     time = new Date().getTime()
     regexp = new RegExp($(this).data('id'), 'g')
@@ -24,9 +33,10 @@ jQuery ->
       preventDuplicates: true
       tokenLimit: 1
       onAdd: (item) ->
-        alert "Added " + item.toSource
+        text_box_id =  $(this).attr('id')
+        autofill_category_details item, text_box_id
       onDelete: (item) ->
-        alert "Deleted " + item.name
+        console.log "Deleted " + item.name
 
   $('#invoice_invoice_due').chosen()
 
@@ -48,6 +58,7 @@ jQuery ->
     preventDuplicates: true
     tokenLimit: 1
     onAdd: (item) ->
-      alert "Added " + item.toSource
+      text_box_id =  $(this).attr('id')
+      autofill_category_details item, text_box_id
     onDelete: (item) ->
-      alert "Deleted " + item.name
+      console.log "Deleted " + item.name
