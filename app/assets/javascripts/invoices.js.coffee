@@ -18,7 +18,7 @@ jQuery ->
     amount_id = '#' + prefix + '_amount'
     $(amount_id).val(item.amount)
 
-  $('form').on 'click', '.add_fields', (event) ->
+  $('form.invoices').on 'click', '.add_fields', (event) ->
     time = new Date().getTime()
     regexp = new RegExp($(this).data('id'), 'g')
     $(this).before($(this).data('fields').replace(regexp, time))

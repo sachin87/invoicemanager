@@ -1,4 +1,4 @@
-= simple_form_for @bill, :html => { :class => 'form-horizontal' } do |f|
+= simple_form_for @bill, :html => { :class => 'form-horizontal bills' } do |f|
   .span12
     %strong Bill
     = f.input :summary, placeholder: 'Type bill summary here ...', label: false, input_html: {class: 'input_box summary'}
