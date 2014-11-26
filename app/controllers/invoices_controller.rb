@@ -1,5 +1,6 @@
 class InvoicesController < ApplicationController
-  before_action :set_invoice, only: [:show, :edit, :update, :destroy, :preview]
+  before_action :set_invoice, only: [:show, :edit, :update, :destroy, :preview,
+                                     :mail, :duplicate, :mark_as_sent, :close]
 
   # GET /invoices
   # GET /invoices.json
@@ -28,6 +29,7 @@ class InvoicesController < ApplicationController
     @invoice = current_user.invoices.new(invoice_params)
 
     respond_to do |format|
+      binding.pry
       if @invoice.save
         format.html { redirect_to @invoice, notice: 'Invoice was successfully created.' }
         format.json { render :show, status: :created, location: @invoice }
@@ -55,7 +57,7 @@ class InvoicesController < ApplicationController
   # DELETE /invoices/1
   # DELETE /invoices/1.json
   def destroy
-    @invoice.destroy
+    @invoice.delete!
     respond_to do |format|
       format.html { redirect_to invoices_url, notice: 'Invoice was successfully destroyed.' }
       format.json { head :no_content }
@@ -67,6 +69,38 @@ class InvoicesController < ApplicationController
       format.pdf do
         render :pdf => 'index'
       end
+    end
+  end
+
+  def mail
+    @invoice.mail!
+    respond_to do |format|
+      format.html { redirect_to invoices_url(@invoice), notice: 'Invoice was Mailed successfully.' }
+      format.json { head :no_content }
+    end
+  end
+
+  def duplicate
+    @invoice.duplicate!
+    respond_to do |format|
+      format.html { redirect_to invoices_url(@invoice), notice: 'Invoice was marked as duplicate.' }
+      format.json { head :no_content }
+    end
+  end
+
+  def close
+    @invoice.close!
+    respond_to do |format|
+      format.html { redirect_to invoices_url(@invoice), notice: 'Invoice was closed.' }
+      format.json { head :no_content }
+    end
+  end
+
+  def mark_as_sent
+    @invoice.mark_as_sent!
+    respond_to do |format|
+      format.html { redirect_to invoices_url(@invoice), notice: 'Invoice was marked as Mailed.' }
+      format.json { head :no_content }
     end
   end
 

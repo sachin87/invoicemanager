@@ -13,6 +13,29 @@ class Bill < ActiveRecord::Base
 
   before_save :set_amount
 
+  state_machine initial: :draft do
+    event :mail do
+      transition [:draft, :duplicated] => :mailed
+    end
+
+    event :delete do
+      transition [:draft, :duplicated, :closed] => :deleted
+    end
+
+    event :mark_as_payable do
+      transition [:draft, :duplicated] => :mailed
+    end
+
+    event :duplicate do
+      transition [:draft, :closed] => :duplicated
+    end
+
+    event :close do
+      transition :draft => :closed
+    end
+
+  end
+
   def receiver_tokens=(tokens)
     self.receiver_id = Client.ids_from_tokens(tokens).first.to_i
   end
