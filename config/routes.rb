@@ -32,6 +32,10 @@ Rails.application.routes.draw do
   resources :bills do
     member do
       get :preview
+      post :close
+      post :duplicate
+      post :mark_as_sent
+      post :mail
     end
   end
 

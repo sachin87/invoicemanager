@@ -25,7 +25,7 @@
       = f.input :date, as: :string, input_html: { class: 'datepicker input_box' }
       = f.input :bill_number, input_html: {class: 'input_box'}
       = f.input :due_on, collection: DUE_IN, include_blank: false
-      = f.input :purchase_order_number, label: 'Bill Reference Number', input_html: {class: 'input_box'}
+      = f.input :bill_reference_number, label: 'Bill Reference Number', input_html: {class: 'input_box'}
     .span4
   .span12
     = f.simple_fields_for :items do |items_form|

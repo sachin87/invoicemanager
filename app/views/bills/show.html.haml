@@ -12,17 +12,16 @@
           More
           %span.caret
         %ul.dropdown-menu{"aria-labelledby" => "dLabel", :role => "menu"}
-          %li=link_to 'Preview', preview_bill_path(@bill, format: :pdf)
+          %li=link_to 'Preview / Download as PDF', preview_bill_path(@bill, format: :pdf), target: '_blank'
           %li=link_to 'Share with Team', '#'
-          %li=link_to 'Send Bill', '#'
-          %li=link_to 'Download as PDF', '#'
+          %li=link_to 'Send Bill', mail_bill_path(@bill), method: :post
           %li.menu_group=link_to 'Bill Activity', '#'
           %li=link_to 'Post Comment', '#'
           %li=link_to 'Enter payment', '#'
-          %li=link_to 'Mark as Sent', '#'
-          %li=link_to 'Duplicate Bill', '#'
-          %li.menu_group=link_to 'Close', '#'
-          %li=link_to 'Delete', '#'
+          %li=link_to 'Mark as Sent', mark_as_sent_bill_path(@bill), method: :post
+          %li=link_to 'Duplicate Bill', duplicate_bill_path(@bill), method: :post
+          %li.menu_group=link_to 'Close', close_bill_path(@bill), method: :post
+          %li=link_to 'Delete', @bill, method: :delete
 %br
 .span12
   %h3 Bill
@@ -49,9 +48,9 @@
     %strong Bill Due
     .margin2pr
       = @bill.due_on
-    %strong Purchase Order Number
+    %strong Bill Reference Number
     .margin10pr
-      = @bill.purchase_order_number
+      = @bill.bill_reference_number
 .span12
   .span3
     %strong

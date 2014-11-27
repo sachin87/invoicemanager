@@ -1,5 +1,6 @@
 class BillsController < ApplicationController
-  before_action :set_bill, only: [:show, :edit, :update, :destroy, :preview]
+  before_action :set_bill, only: [:show, :edit, :update, :destroy, :preview,
+                                  :mail, :duplicate, :mark_as_sent, :close]
 
   # GET /bills
   # GET /bills.json
@@ -69,6 +70,38 @@ class BillsController < ApplicationController
     end
   end
 
+  def mail
+    @bill.mail!
+    respond_to do |format|
+      format.html { redirect_to bills_url(@bill), notice: 'Bill was Mailed successfully.' }
+      format.json { head :no_content }
+    end
+  end
+
+  def duplicate
+    @bill.duplicate!
+    respond_to do |format|
+      format.html { redirect_to bills_url(@bill), notice: 'Bill was marked as duplicate.' }
+      format.json { head :no_content }
+    end
+  end
+
+  def close
+    @bill.close!
+    respond_to do |format|
+      format.html { redirect_to bills_url(@bill), notice: 'Bill was closed.' }
+      format.json { head :no_content }
+    end
+  end
+
+  def mark_as_sent
+    @bill.mark_as_sent!
+    respond_to do |format|
+      format.html { redirect_to bills_url(@bill), notice: 'Bill was marked as Mailed.' }
+      format.json { head :no_content }
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_bill
@@ -77,7 +110,7 @@ class BillsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def bill_params
-      params.require(:bill).permit(:summary, :receiver_tokens, :date, :bill_number, :due_on, :purchase_order_number,
+      params.require(:bill).permit(:summary, :receiver_tokens, :date, :bill_number, :due_on, :bill_reference_number,
                                    :bill_notes, :id, items_attributes: [ :bill_category_tokens, :quantity,
                                    :rate, :amount, :_destroy, :id ])
     end
