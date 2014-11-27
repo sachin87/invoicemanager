@@ -12,7 +12,7 @@
           More
           %span.caret
         %ul.dropdown-menu{"aria-labelledby" => "dLabel", :role => "menu"}
-          %li=link_to 'Preview / Download as PDF', preview_invoice_path(@invoice, format: :pdf)
+          %li=link_to 'Preview / Download as PDF', preview_invoice_path(@invoice, format: :pdf), target: '_blank'
           %li=link_to 'Share with Team', '#'
           %li=link_to 'Send Invoice', mail_invoice_path(@invoice), method: :post
           %li.menu_group=link_to 'Invoice Activity', '#'
