@@ -29,7 +29,6 @@ class InvoicesController < ApplicationController
     @invoice = current_user.invoices.new(invoice_params)
 
     respond_to do |format|
-      binding.pry
       if @invoice.save
         format.html { redirect_to @invoice, notice: 'Invoice was successfully created.' }
         format.json { render :show, status: :created, location: @invoice }
