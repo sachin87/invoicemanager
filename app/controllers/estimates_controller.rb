@@ -1,5 +1,6 @@
 class EstimatesController < ApplicationController
-  before_action :set_estimate, only: [:show, :edit, :update, :destroy, :preview]
+  before_action :set_estimate, only: [:show, :edit, :update, :destroy, :preview,
+                                      :mail, :duplicate, :mark_as_sent, :close]
 
   # GET /estimates
   # GET /estimates.json
@@ -66,6 +67,38 @@ class EstimatesController < ApplicationController
       format.pdf do
         render :pdf => 'index'
       end
+    end
+  end
+
+  def mail
+    @estimate.mail!
+    respond_to do |format|
+      format.html { redirect_to estimates_url(@estimate), notice: 'Estimate was Mailed successfully.' }
+      format.json { head :no_content }
+    end
+  end
+
+  def duplicate
+    @estimate.duplicate!
+    respond_to do |format|
+      format.html { redirect_to estimates_url(@estimate), notice: 'Estimate was marked as duplicate.' }
+      format.json { head :no_content }
+    end
+  end
+
+  def close
+    @estimate.close!
+    respond_to do |format|
+      format.html { redirect_to estimates_url(@estimate), notice: 'Estimate was closed.' }
+      format.json { head :no_content }
+    end
+  end
+
+  def mark_as_sent
+    @estimate.mark_as_sent!
+    respond_to do |format|
+      format.html { redirect_to estimates_url(@estimate), notice: 'Estimate was marked as Mailed.' }
+      format.json { head :no_content }
     end
   end
 

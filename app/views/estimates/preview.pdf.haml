@@ -1,67 +1,190 @@
-= wicked_pdf_stylesheet_link_tag "application"
+:css
+  .description {
+    padding-top: 1%;
+    padding-bottom: 1%;
+    text-align: left;
+    padding-right: 20%;
+  }
 
-.span12.bg-info
-  .span8
-    %h2
-      ESTIMATE
-      =@estimate.estimate_number
-  .span4.button-set-crud
+  .quantity {
+    padding-top: 1%;
+    padding-right: 10%;
+    padding-bottom: 1%;
+    text-align: right;
+  }
+
+  .rate {
+    padding-top: 1%;
+    padding-right: 10%;
+    padding-bottom: 1%;
+    text-align: right;
+  }
+
+  .amount {
+    padding-top: 1%;
+    padding-bottom: 1%;
+    padding-left: 5%;
+    text-align: right;
+  }
+
+  .margin10top{
+    margin-top: 10%;
+  }
+
+  .margin2top{
+    margin-top: 2%;
+  }
+
+  .margin5pr{
+    margin-bottom: 5%;
+  }
+
+  .margin10pr{
+     margin-bottom: 10%;
+  }
+
+  .margin20pr{
+    margin-bottom: 20%;
+  }
+
+  .bg-info{
+    background-color: #88888F;
+  }
+
+  .from {
+    padding-top: 1%;
+    padding-right: 10%;
+    padding-bottom: 1%;
+    width: 10%;
+    text-align: left;
+  }
+
+  .date {
+    padding-top: 1%;
+    padding-bottom: 1%;
+    padding-left: 20%;
+    text-align: right;
+    width: 10%;
+  }
+
+  .purchase_order_number {
+    padding-top: 1%;
+    padding-right: 1%;
+    padding-bottom: 1%;
+    width: 40%;
+    text-align: left;
+  }
+
+  .estimate_number {
+    padding-top: 1%;
+    padding-bottom: 1%;
+    padding-left: 1%;
+    text-align: right;
+    width: 10%;
+  }
+
+  .to {
+    padding-top: 1%;
+    padding-right: 10%;
+    padding-bottom: 1%;
+    width: 10%;
+    text-align: left;
+  }
+
+  .estimate_due {
+    padding-top: 1%;
+    padding-bottom: 1%;
+    padding-left: 10%;
+    text-align: right;
+    width: 60%;
+  }
+
+.bg-info
+  %h2
+    ESTIMATE
+    =@estimate.estimate_number
 %br
-.span12
+.div
   %h3 Estimate
   .margin5pr
     = @estimate.summary
-.span12
-  .span4
-    %strong
+
+%table{ style: 'width:100%;'}
+  %thead
+    %th.from
       From
-    %br
-    .margin20pr
-      = @estimate.sender_full_name
-    .span6
-      %strong To
-    .span6
-      = @estimate.receiver.try(:name_with_address)
-  %br
-  .span4
-    %strong Date
-    .margin2pr
-      = @estimate.date
-    %strong Estimate Number
-    .margin2pr
-      = @estimate.estimate_number
-    %strong Estimate Due
-    .margin2pr
-      = @estimate.due_on
-.span12
-  .span3
-    %strong
+    %th.date
+      Date
+  %tbody
+    %tr
+      %td.from
+        = @estimate.sender_full_name
+      %td.date
+        = @estimate.date
+
+%table{ style: 'width:100%;'}
+  %thead
+    %th.purchase_order_number
+    %th.estimate_number
+      Estimate Number
+  %tbody
+    %tr
+      %td.purchase_order_number
+      %td.estimate_number
+        = @estimate.estimate_number
+%table{ style: 'width:100%;'}
+  %thead
+    %th.to
+      To
+    %th.estimate_due
+      Estimate Due
+  %tbody
+    %tr
+      %td.to
+        = @estimate.receiver.try(:name_with_address)
+      %td.estimate_due
+        = @estimate.due_on
+%table{ style: 'width:100%;'}
+  %tbody
+    %th.description
       Description
-  .span3
-    %strong
+    %th.quantity
       Quantity
-  .span3
-    %strong
+    %th.rate
       Rate
-  .span2
-    %strong
+    %th.amount
       Amount
-.span12.margin2pr
-  - @estimate.items.each do |item|
-    %hr
-    .span3
-      = item.description
-    .span3
-      = item.quantity
-    .span3
-      = item.rate
-    .span2
-      = item.amount
-.span12
+  %tbody
+    - @estimate.items.each do |item|
+      %tr
+        %td.description
+          = item.description
+        %td.quantity
+          = item.quantity
+        %td.rate
+          = item.rate
+        %td.amount
+          = item.amount
+    %tr
+      %td.description
+      %td.quantity
+      %td.rate
+        Subtotal
+      %td.amount
+        = @estimate.amount
+  %tfoot
+    %tr
+      %td.description
+      %td.quantity
+      %td.rate
+        Total Due (USD)
+      %td.amount
+        = @estimate.amount
+.div.margin10top
   %strong Estimate Note
-  .margin10pr
+  .margin2top
     = @estimate.estimate_notes
 
-.span12
+.div.margin10top
   %hr
   Email: #{@estimate.user.email}
