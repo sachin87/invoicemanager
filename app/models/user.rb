@@ -15,8 +15,14 @@ class User < ActiveRecord::Base
 
   validates :first_name, :last_name, presence: true
 
+  mount_uploader :company_logo, CompanyLogoUploader
+
   def full_name
     [first_name, last_name].compact.join(' ')
+  end
+
+  def complete_address
+    [street1, street2, city, state, zipcode].join(' ')
   end
 
 end

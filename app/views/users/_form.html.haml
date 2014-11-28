@@ -1,14 +1,21 @@
 = simple_form_for @user, :html => { :class => 'form-horizontal' } do |f|
   = f.input :first_name
   = f.input :last_name
+  = f.input :date_of_birth
   = f.input :currency
   = f.input :email
   = f.input :phone
   = f.input :mobile
-  = f.input :website
+  = f.input :website, as: :url
+  = f.input :street1
+  = f.input :street2
   = f.input :city
   = f.input :state
   = f.input :zipcode
+  = f.file_field :company_logo
+  = f.label :remote_image_url, "or image URL"
+  %br
+  = f.text_field :remote_company_logo_url
   .form-actions
     = f.button :submit, :class => 'btn-primary'
-    = link_to t('.cancel', :default => t("helpers.links.cancel")), users_path, :class => 'btn'
+    = link_to t('.cancel', :default => t("helpers.links.cancel")), current_user, :class => 'btn'
