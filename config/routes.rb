@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+
+  resources :supports
+
+  get 'dashboard/index'
+
   resources :currencies
 
   resources :countries
@@ -14,8 +19,6 @@ Rails.application.routes.draw do
   devise_for :users
 
   resources :teams
-
-  get 'dashboard/index'
 
   resources :tickets
 

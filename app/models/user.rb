@@ -12,10 +12,11 @@ class User < ActiveRecord::Base
   has_many :tasks
   has_many :teams_users
   has_many :teams, through: :teams_users
+  has_many :supports
 
   validates :first_name, :last_name, presence: true
 
-  mount_uploader :company_logo, CompanyLogoUploader
+  #mount_uploader :company_logo, CompanyLogoUploader
 
   def full_name
     [first_name, last_name].compact.join(' ')
