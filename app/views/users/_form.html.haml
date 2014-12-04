@@ -12,6 +12,8 @@
   = f.input :city
   = f.input :state
   = f.input :zipcode
+  - if f.object.has_logo?
+    = image_tag f.object.company_logo.url, class: 'img-circle'
   = f.file_field :company_logo
   = f.label :remote_image_url, "or image URL"
   %br

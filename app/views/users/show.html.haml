@@ -9,7 +9,10 @@
       .row
         .span2
           .col-md-3.col-lg-3{:align => "center"}
-            %img.img-circle{:alt => "User Pic", :src => "https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=100"}
+            - if current_user.has_logo?
+              = image_tag current_user.company_logo.url, class: 'img-circle'
+            - else
+              = image_tag 'photo', alt: "User Pic", class: 'img-circle'
         .span10
           .col-md-9.col-lg-9
             %table.table.table-user-information

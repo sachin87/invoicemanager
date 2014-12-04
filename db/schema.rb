@@ -235,6 +235,7 @@ ActiveRecord::Schema.define(version: 20141204051318) do
     t.string   "date_of_birth"
     t.string   "street1"
     t.string   "street2"
+    t.string   "company_logo"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
