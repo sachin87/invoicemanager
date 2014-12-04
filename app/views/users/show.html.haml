@@ -1,53 +1,44 @@
 .col-xs-12.col-sm-12.col-md-6.col-lg-6.col-xs-offset-0.col-sm-offset-0.col-md-offset-3.col-lg-offset-3.toppad
   .panel.panel-info
     .panel-heading
-      %h3.panel-title=current_user.full_name
+      %h3
+        .panel-title
+          = current_user.full_name
+          = link_to 'Edit', edit_user_path(current_user), class: 'btn btn-primary pull-right'
     .panel-body
       .row
-        .span4
-          .col-md-3.col-lg-3{:align => "left"}
+        .span2
+          .col-md-3.col-lg-3{:align => "center"}
             %img.img-circle{:alt => "User Pic", :src => "https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=100"}
-        .span8
-          .div.col-xs-10.col-sm-10.hidden-md.hidden-lg
-            %dl
-              %dt First Name:
-              %dd=current_user.first_name
-              %dt Last Name
-              %dd=current_user.last_name
-              %dt DATE OF BIRTH
-              %dd 11/12/2013
-              %dt GENDER
-              %dd Male
-        .col-md-9.col-lg-9
-          %table.table.table-user-information
-            %tbody
-              %tr
-                %td Department:
-                %td Programming
-              %tr
-                %td Account Created On:
-                %td=current_user.created_at
-              %tr
-                %td Date of Birth
-                %td 01/24/1988
-              %tr
+        .span10
+          .col-md-9.col-lg-9
+            %table.table.table-user-information
+              %tbody
                 %tr
-                  %td Gender
-                  %td Male
+                  %td Department:
+                  %td Programming
                 %tr
-                  %td Home Address
-                  %td=current_user.complete_address
+                  %td Account Created On:
+                  %td=current_user.created_at
                 %tr
-                  %td Email
+                  %td Date of Birth
+                  %td 01/24/1988
+                %tr
+                  %tr
+                    %td Gender
+                    %td Male
+                  %tr
+                    %td Home Address
+                    %td=current_user.complete_address
+                  %tr
+                    %td Email
+                    %td
+                      %a{:href => "mailto:info@support.com"}=current_user.email
+                  %td Phone Number
                   %td
-                    %a{:href => "mailto:info@support.com"}=current_user.email
-                %td Phone Number
-                %td
-                  =current_user.phone
-                  (Landline)
-                  %br
+                    =current_user.phone
+                    (Landline)
                     %br
-                      =current_user.mobile
-                      (Mobile)
-          = link_to 'Edit', edit_user_path(current_user), class: 'btn btn-primary'
-          = link_to 'Back', current_user, class: 'btn btn-primary'
+                      %br
+                        =current_user.mobile
+                        (Mobile)
