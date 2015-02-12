@@ -31,14 +31,12 @@ gem 'devise'
 gem 'haml-rails'
 gem "less-rails"
 gem 'omniauth'
-gem 'rails_12factor'
 gem 'simple_form'
 gem 'bootstrap-datepicker-rails'
 gem 'money-rails'
 gem 'pundit'
 gem 'chosen-rails'
 gem 'jquery-tokeninput-rails'
-gem 'thin'
 gem "font-awesome-rails"
 gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'
@@ -48,8 +46,9 @@ group :production do
 end
 
 group :development do
+  gem 'pg'
   # Use sqlite3 as the database for Active Record
-  gem 'sqlite3'
+  #gem 'sqlite3'
 end
 
 group :development, :test do
@@ -62,7 +61,7 @@ end
 # gem 'bcrypt', '~> 3.1.7'
 
 # Use unicorn as the app server
-# gem 'unicorn'
+gem 'unicorn'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
