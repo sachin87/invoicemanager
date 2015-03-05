@@ -47,6 +47,9 @@ end
 
 group :development do
   gem 'pg'
+  gem 'thin'
+  gem 'quiet_assets'
+  gem 'better_errors'
   # Use sqlite3 as the database for Active Record
   #gem 'sqlite3'
 end
