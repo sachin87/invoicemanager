@@ -31,10 +31,11 @@
                   = link_to current_user do
                     %i.fa.fa-user.fa-lg
                       = current_user.first_name
-              %li
-                = link_to "#" do
-                  %i.fa.fa-arrow-up.fa-lg
-                    Upgrade
+              - if false
+                %li
+                  = link_to "#" do
+                    %i.fa.fa-arrow-up.fa-lg
+                      Upgrade
               %li
                 = link_to new_support_path do
                   %i.fa.fa-life-ring.fa-lg
