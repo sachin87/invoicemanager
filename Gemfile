@@ -41,17 +41,14 @@ gem "font-awesome-rails"
 gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'
 gem 'state_machine'
-group :production do
-  gem 'pg'
-end
+gem 'pg'
 
 group :development do
-  gem 'pg'
   gem 'thin'
   gem 'quiet_assets'
   gem 'better_errors'
   # Use sqlite3 as the database for Active Record
-  #gem 'sqlite3'
+  gem 'sqlite3'
 end
 
 group :development, :test do
