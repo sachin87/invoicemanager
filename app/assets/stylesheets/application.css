@@ -42,7 +42,7 @@
   padding: 19px 29px 29px;
   margin: 0 auto 20px;
   background-color: #FEFEFE;
-  border: 1px solid #e5e5e5;
+  border: 3px solid #e5e5e5;
   margin-top: 70px;
   -webkit-border-radius: 5px;
      -moz-border-radius: 5px;
@@ -51,13 +51,11 @@
      -moz-box-shadow: 0 1px 2px rgba(0,0,0,.05);
           box-shadow: 0 1px 2px rgba(0,0,0,.05);
 }
-.border-form-div .form-signin-heading,
 .border-form-div .checkbox {
   margin-bottom: 10px;
-}
-.border-form-div .checkbox {
   font-weight: normal;
 }
+
 .border-form-div input[type="text"],
 .border-form-div input[type="email"],
 .border-form-div input[type="password"] {
@@ -65,4 +63,22 @@
   height: auto;
   margin-bottom: 15px;
   padding: 7px 9px;
+  width: 93%;
+}
+
+.border-form-div .field_with_errors label {
+  color: #FE1F20
+}
+
+.border-form-div h4.title {
+  margin: 10px 0px 25px;
+  text-align: center;
+  color: #9D9D9D;
+  font-size: 1.42857em;
+  text-transform: uppercase;
+  font-weight: normal;
+  font-style: normal;
+}
+.normal_case{
+  text-transform: inherit !important;
 }

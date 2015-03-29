@@ -17,7 +17,8 @@
       = javascript_include_tag "//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.1/html5shiv.js"
   %body
     .container
-      = bootstrap_flash
-      = yield
+      .row
+        .border-form-div
+          = yield
       %footer
         = javascript_include_tag "application"
