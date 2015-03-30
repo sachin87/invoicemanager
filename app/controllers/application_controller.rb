@@ -8,6 +8,8 @@ class ApplicationController < ActionController::Base
 
   before_action :authenticate_user!
 
+  before_action :configure_devise_permitted_parameters, if: :devise_controller?
+
   layout :layout_by_resource
 
   rescue_from StateMachine::InvalidTransition do |exception|
@@ -22,5 +24,12 @@ class ApplicationController < ActionController::Base
       "application"
     end
   end 
+
+  protected
+
+  def configure_devise_permitted_parameters
+    devise_parameter_sanitizer.for(:sign_up).push(:first_name, :last_name)
+    devise_parameter_sanitizer.for(:account_update).push(:first_name, :last_name)
+  end
 
 end
