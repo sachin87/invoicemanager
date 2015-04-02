@@ -42,6 +42,7 @@ gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'
 gem 'state_machine'
 gem 'pg'
+gem 'thin'
 
 group :development do
   gem 'mysql2'
