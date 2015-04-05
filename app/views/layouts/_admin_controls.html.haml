@@ -1,0 +1,37 @@
+- if user_signed_in? && !(controller_name == "businesses" && action_name == "new")
+  .span3
+    .well.sidebar-nav
+      %ul.nav.nav-list
+        %li.nav-header Sidebar
+        %li
+          = link_to root_path do
+            %i.fa.fa-tachometer.fa-lg
+              Dashboard
+        %li
+          = link_to invoices_path do
+            %i.fa.fa-file.fa-lg
+              Invoices
+        %li
+          = link_to bills_path do
+            %i.fa.fa-file-o.fa-lg
+              Bills
+        %li
+          = link_to estimates_path do
+            %i.fa.fa-file-text.fa-lg
+              Estimates
+        %li
+          = link_to entries_path do
+            %i.fa.fa-road.fa-lg
+              Track
+        %li
+          = link_to users_path do
+            %i.fa.fa-users.fa-lg
+              Network
+        %li
+          = link_to '#' do
+            %i.fa.fa-file.fa-lg
+              Files
+        %li
+          = link_to '#' do
+            %i.fa.fa-trash-o.fa-lg
+              Trash

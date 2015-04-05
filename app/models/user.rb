@@ -4,6 +4,8 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable,
          :confirmable, :lockable, :timeoutable, :omniauthable
 
+  has_many :business_users, dependent: :destroy
+  has_many :businesses, :through => :business_users
   has_many :invoices
   has_many :bills
   has_many :estimates
@@ -14,7 +16,7 @@ class User < ActiveRecord::Base
   has_many :teams, through: :teams_users
   has_many :supports
 
-  validates :first_name, :last_name, presence: true
+  validates :first_name, presence: true
 
   mount_uploader :company_logo, CompanyLogoUploader
 

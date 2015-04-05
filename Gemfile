@@ -44,6 +44,8 @@ gem 'state_machine'
 gem 'pg'
 gem 'thin'
 
+gem 'byebug', groups: [:development, :test]
+
 group :development do
   gem 'mysql2'
   gem 'thin'

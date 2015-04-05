@@ -1,6 +1,5 @@
 <h4 class="title">SIGN IN</h4>
 <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
   <%= bootstrap_flash %>
   <%= f.label :email, "Email" %>
   <%= f.email_field :email, :autofocus => true %>

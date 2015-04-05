@@ -8,19 +8,9 @@ class ApplicationController < ActionController::Base
 
   before_action :authenticate_user!
 
-  layout :layout_by_resource
-
   rescue_from StateMachine::InvalidTransition do |exception|
     flash[:error] = exception.message
     redirect_to root_path
   end
-
-  def layout_by_resource
-    if devise_controller?
-      "simple-layout"
-    else
-      "application"
-    end
-  end 
 
 end

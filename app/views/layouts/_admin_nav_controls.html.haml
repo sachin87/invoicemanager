@@ -1,0 +1,33 @@
+.navbar.navbar-fluid-top
+  .navbar-inner
+    .container-fluid
+      %a.btn.btn-navbar(data-target=".nav-collapse" data-toggle="collapse")
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+      %a.brand.fa.fa-home(href="#") Invoicemanager
+      .container.nav-collapse
+        %ul.nav.pull-right
+          %li
+            - if current_user
+              = link_to current_user do
+                %i.fa.fa-user.fa-lg
+                  = current_user.first_name
+          - if false
+            %li
+              = link_to "#" do
+                %i.fa.fa-arrow-up.fa-lg
+                  Upgrade
+          %li
+            = link_to new_support_path do
+              %i.fa.fa-life-ring.fa-lg
+                Support
+          %li
+            = link_to settings_path do
+              %i.fa.fa-cog.fa-lg
+                Settings
+          - if user_signed_in?
+            %li
+              = link_to '/users/sign_out', method: :delete do
+                %i.fa.fa-sign-out.fa-lg
+                  Log Out
