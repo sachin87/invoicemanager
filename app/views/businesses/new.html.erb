@@ -1,0 +1,20 @@
+<h4 class="title normal_case">Get started with a free account</h4>
+<%= form_for(@business) do |f| %>
+  <%= error_messages!(@business) %>
+  <%= f.label :first_name, "Owner’s First Name" %> 
+  <%= f.text_field :first_name %>
+  <%= f.label :email, "Owner’s Email" %>
+  <%= f.email_field :email, :autofocus => true %>
+  <%= f.label :business_name, "Organization Name" %>
+  <%= f.text_field :business_name %>
+  <label class="checkbox"> <%= f.check_box :is_organization %>  Not an Organization (I'm an Individual) </label>
+  <%= f.fields_for (:account_owner) do |ff| %>
+    <%= ff.label :password %>
+    <%= ff.password_field :password, autocomplete: "off" %>
+  <% end %>
+  <%= f.submit "Create Account",class: "btn btn-success" %>
+<% end %>
+<% if !current_user %>
+  <%= link_to "Already have an account? Sign in.", new_session_path(User) %><br/>
+  <%= link_to "Didn’t receive the activation email? Resend", new_confirmation_path(User) %>
+<% end %>

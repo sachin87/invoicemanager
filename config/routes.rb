@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
 
-  resources :supports
+  resources :business_users
 
+  resources :businesses
+
+  resources :supports
+ 
   get 'dashboard/index'
 
   resources :currencies

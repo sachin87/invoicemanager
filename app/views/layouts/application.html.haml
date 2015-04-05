@@ -16,81 +16,11 @@
     /[if lt IE 9]
       = javascript_include_tag "//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.1/html5shiv.js"
   %body
-    .navbar.navbar-fluid-top
-      .navbar-inner
-        .container-fluid
-          %a.btn.btn-navbar(data-target=".nav-collapse" data-toggle="collapse")
-            %span.icon-bar
-            %span.icon-bar
-            %span.icon-bar
-          %a.brand.fa.fa-home(href="#") Invoicemanager
-          .container.nav-collapse
-            %ul.nav.pull-right
-              %li
-                - if current_user
-                  = link_to current_user do
-                    %i.fa.fa-user.fa-lg
-                      = current_user.first_name
-              - if false
-                %li
-                  = link_to "#" do
-                    %i.fa.fa-arrow-up.fa-lg
-                      Upgrade
-              %li
-                = link_to new_support_path do
-                  %i.fa.fa-life-ring.fa-lg
-                    Support
-              %li
-                = link_to settings_path do
-                  %i.fa.fa-cog.fa-lg
-                    Settings
-              - if user_signed_in?
-                %li
-                  = link_to '/users/sign_out', method: :delete do
-                    %i.fa.fa-sign-out.fa-lg
-                      Log Out
+    = render "layouts/admin_nav_controls"
     .container-fluid
       .row-fluid
-        - if user_signed_in?
-          .span3
-            .well.sidebar-nav
-              %ul.nav.nav-list
-                %li.nav-header Sidebar
-                %li
-                  = link_to root_path do
-                    %i.fa.fa-tachometer.fa-lg
-                      Dashboard
-                %li
-                  = link_to invoices_path do
-                    %i.fa.fa-file.fa-lg
-                      Invoices
-                %li
-                  = link_to bills_path do
-                    %i.fa.fa-file-o.fa-lg
-                      Bills
-                %li
-                  = link_to estimates_path do
-                    %i.fa.fa-file-text.fa-lg
-                      Estimates
-                %li
-                  = link_to entries_path do
-                    %i.fa.fa-road.fa-lg
-                      Track
-                %li
-                  = link_to users_path do
-                    %i.fa.fa-users.fa-lg
-                      Network
-                %li
-                  = link_to '#' do
-                    %i.fa.fa-file.fa-lg
-                      Files
-                %li
-                  = link_to '#' do
-                    %i.fa.fa-trash-o.fa-lg
-                      Trash
-        .span9
-          = bootstrap_flash
-          = yield
+        = render "layouts/admin_controls"
+        = render "layouts/main"
       %footer
         = javascript_include_tag "application"
         %p Invoiceman &copy; Company 2014
