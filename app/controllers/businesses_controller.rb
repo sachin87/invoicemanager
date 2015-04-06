@@ -18,7 +18,8 @@ class BusinessesController < ApplicationController
   end
 
   def create
-    bm = BusinessMaker.new(business_params,current_user)
+    bparams = params.require(:business).permit(:business_name, :is_organization, account_owner_attributes: [:first_name, :email, :password])
+    bm = BusinessMaker.new(bparams,current_user)
     @business = bm.setup
     
     respond_to do |format|
@@ -37,7 +38,7 @@ class BusinessesController < ApplicationController
   def update
     respond_to do |format|
       if @business.update(business_params)
-        format.html { redirect_to @business, notice: 'Business was successfully updated.' }
+        format.html { redirect_to edit_business_path(@business), notice: 'Connection has been successfully updated.' }
         format.json { render :show, status: :ok, location: @business }
       else
         format.html { render :edit }
@@ -61,8 +62,7 @@ class BusinessesController < ApplicationController
     end
 
     def business_params
-      params.require(:business).permit(:first_name, :phone, :mobile, :fax, :website, :address,
-                                       :city, :state, :zipcode, :email, :business_name, :is_organization,
-                                       account_owner_attributes: [:password])
+      params.require(:business).permit(:first_name, :last_name, :phone, :mobile, :fax, :website, :address,
+                                       :city, :state, :zipcode, :email, :business_name, :is_organization)
     end
 end
