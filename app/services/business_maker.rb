@@ -13,11 +13,9 @@ class BusinessMaker
   end
 
   def setup
-    if business.account_owner.new_record?
-      business.account_owner.tap do |user|
-        user.email = business.email
-        user.first_name = business.first_name
-      end
+    if business.account_owner
+      business.email = account_owner.email
+      business.first_name = account_owner.first_name
     end
     business
   end

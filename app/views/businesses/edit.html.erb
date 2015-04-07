@@ -1,0 +1,29 @@
+<h2>Your Business Profile</h2>
+<%= form_for(@business) do |f| %>
+  <%= error_messages!(@business) %>
+  <%= f.label :first_name, "First Name" %> 
+  <%= f.text_field :first_name %>
+  <%= f.label :last_name, "Last Name" %> 
+  <%= f.text_field :last_name %>
+  <%= f.label :business_name, "Organization Name" %>
+  <%= f.text_field :business_name %>
+  <%= f.label :phone, "Phone" %>
+  <%= f.text_field :phone %>
+  <%= f.label :fax, "Fax" %>
+  <%= f.text_field :fax %>
+  <%= f.label :mobile, "Mobile" %>
+  <%= f.text_field :mobile %>
+  <%= f.label :website, "Website URL" %>
+  <%= f.text_field :website %>
+  <%= f.label :address, "Address" %>
+  <%= f.text_field :address %>
+  <%= f.label :city, "City" %>
+  <%= f.text_field :city %>
+  <%= f.label :state, "State" %>
+  <%= f.text_field :state %>
+  <%= f.label :zipcode, "Zip code" %>
+  <%= f.text_field :zipcode %>
+  <div class="form-actions">
+    <%= f.submit "Save",class: "btn btn-success" %>
+  </div>
+<% end %>

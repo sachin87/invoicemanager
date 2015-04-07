@@ -6,6 +6,5 @@ class Business < ActiveRecord::Base
 
   accepts_nested_attributes_for :account_owner
 
-  validates :account_owner, presence: true
-  validates :first_name, :email, :business_name, presence: true
+  validates :account_owner, :business_name, presence: true
 end
