@@ -48,7 +48,6 @@ gem 'byebug', groups: [:development, :test]
 
 group :development do
   gem 'mysql2'
-  gem 'thin'
   gem 'quiet_assets'
   gem 'better_errors'
   # Use sqlite3 as the database for Active Record
