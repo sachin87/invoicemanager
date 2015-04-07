@@ -18,15 +18,15 @@
               = link_to "#" do
                 %i.fa.fa-arrow-up.fa-lg
                   Upgrade
-          %li
-            = link_to new_support_path do
-              %i.fa.fa-life-ring.fa-lg
-                Support
-          %li
-            = link_to settings_path do
-              %i.fa.fa-cog.fa-lg
-                Settings
           - if user_signed_in?
+            %li
+              = link_to new_support_path do
+                %i.fa.fa-life-ring.fa-lg
+                  Support
+            %li
+              = link_to settings_path do
+                %i.fa.fa-cog.fa-lg
+                  Settings
             %li
               = link_to '/users/sign_out', method: :delete do
                 %i.fa.fa-sign-out.fa-lg
